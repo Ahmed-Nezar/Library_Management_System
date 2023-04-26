@@ -2,10 +2,10 @@ public class Books extends Library{
     private String Title;
     private String Genre;
     private String Author;
-    private int ISBN;
+    private long ISBN;
     private boolean Available;
     private static int BookCount = 0;
-    public Books(String Title, String Genre, String Author, int ISBN, boolean Available) {
+    public Books(String Title, String Genre, String Author,long ISBN, boolean Available) {
         this.Title = Title;
         this.Genre = Genre;
         this.Author = Author;
@@ -27,7 +27,7 @@ public class Books extends Library{
         return Author;
     }
 
-    public int getISBN() {
+    public long getISBN() {
         return ISBN;
     }
     

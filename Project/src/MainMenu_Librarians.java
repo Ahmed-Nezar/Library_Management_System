@@ -30,6 +30,7 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         mainMenuPane.setVgap(10);
         mainMenuPane.setHgap(10);
         Button addBookButton = new Button("Add Book");
+        addBookButton.setOnAction(new AddBook(primaryStage));
         addBookButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
         "-fx-background-radius: 30px;" +
         "-fx-border-radius: 2px;" +
@@ -96,6 +97,7 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         "-fx-pref-width: 300px;"+
         "-fx-pref-height: 50px;"));
         Button addUserButton = new Button("Add User");
+        addUserButton.setOnAction(new AddUser(primaryStage));
         addUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
         "-fx-background-radius: 30px;" +
         "-fx-border-radius: 2px;" +
@@ -232,7 +234,8 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
             SearchUser searchUser = new SearchUser(primaryStage);
             searchUser.handle(event);
         });
-        Button logoutButton = new Button("LogoutButton");
+        Button logoutButton = new Button("Logout");
+        logoutButton.setOnAction(new login(primaryStage));
         logoutButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
         "-fx-background-radius: 30px;" +
         "-fx-border-radius: 2px;" +

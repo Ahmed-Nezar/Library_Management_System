@@ -19,11 +19,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-class register implements EventHandler<ActionEvent> {
+class AddUser implements EventHandler<ActionEvent> {
     private Stage primaryStage;
     Readers readers;
-
-    public register(Stage primaryStage) {
+    
+    public AddUser(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
     @Override
@@ -31,12 +31,12 @@ class register implements EventHandler<ActionEvent> {
         Image backgroundImage = new Image("login.jpg");
         BackgroundImage backgroundImg = new BackgroundImage(backgroundImage,BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(1.0, 1.0, true, true, false, false));
         Background background = new Background(backgroundImg);
-        GridPane registerPane = new GridPane();
-        registerPane.setBackground(background);
-        registerPane.setAlignment(Pos.CENTER);
-        registerPane.setPadding(new Insets(10, 10, 10, 10));
-        registerPane.setVgap(10);
-        registerPane.setHgap(10);
+        GridPane AddUserPane = new GridPane();
+        AddUserPane.setBackground(background);
+        AddUserPane.setAlignment(Pos.CENTER);
+        AddUserPane.setPadding(new Insets(10, 10, 10, 10));
+        AddUserPane.setVgap(10);
+        AddUserPane.setHgap(10);
         Label emailLabel = new Label("Email:");
         emailLabel.setFont(Font.font(20));
         TextField emailField = new TextField();
@@ -89,15 +89,15 @@ class register implements EventHandler<ActionEvent> {
         GridPane.setConstraints(addressLabel, 0, 6);
         GridPane.setConstraints(addressField, 1, 6);
 
-        Button registerButton = new Button("Register");
-        registerButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
+        Button AddUserButton = new Button("Add User");
+        AddUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
         "-fx-background-radius: 5px;" +
         "-fx-border-radius: 2px;" +
         "-fx-text-fill: white;" +
         "-fx-font-size: 30px;" +
         "-fx-pref-width: 300px;" +
         "-fx-pref-height: 10px;");
-        registerButton.setOnMouseEntered(e -> registerButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
+        AddUserButton.setOnMouseEntered(e -> AddUserButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
         "-fx-background-radius: 5px;" +
         "-fx-border-radius: 2px;" +
         "-fx-text-fill: white;" +
@@ -105,7 +105,7 @@ class register implements EventHandler<ActionEvent> {
         "-fx-pref-width: 300px;" +
         "-fx-pref-height: 10px;")
         );
-        registerButton.setOnMouseExited(e -> registerButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
+        AddUserButton.setOnMouseExited(e -> AddUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
         "-fx-background-radius: 5px;" +
         "-fx-border-radius: 2px;" +
         "-fx-text-fill: white;" +
@@ -113,9 +113,9 @@ class register implements EventHandler<ActionEvent> {
         "-fx-pref-width: 300px;" +
         "-fx-pref-height: 10px;")
         );
-        registerButton.setFont(Font.font(20));
-        GridPane.setConstraints(registerButton, 1, 7);
-        registerButton.setOnAction(new EventHandler<ActionEvent>() {
+        AddUserButton.setFont(Font.font(20));
+        GridPane.setConstraints(AddUserButton, 1, 7);
+        AddUserButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 String email = emailField.getText();
@@ -145,23 +145,23 @@ class register implements EventHandler<ActionEvent> {
                     alert.showAndWait();
                 } 
                 else {
-                    Library.readers.add(new Readers(password, firstName, lastName, address, phoneNumber, email,false));
+                    Library.readers.add(new Readers(password, firstName, lastName, address, phoneNumber, email,false));                    
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Success");
                     alert.setHeaderText("Success");
-                    alert.setContentText("You have successfully registered\n"+"Your Username is: "+ Library.readers.get(Library.readers.size()-1).getID() );
+                    alert.setContentText("User Has Been Added\n"+"Your Username is: "+ Library.readers.get(Library.readers.size()-1).getID() );
                     alert.showAndWait();
-                    login LOG = new login(primaryStage);
-                    LOG.handle(event);        
+                    MainMenu_Librarians mainMenu = new MainMenu_Librarians(primaryStage);
+                    mainMenu.handle(event);        
                     
                 }   
                 
             }
         });
 
-        registerPane.getChildren().addAll(emailLabel, emailField, passwordLabel, passwordField, confirmPasswordLabel, confirmPasswordField, firstNameLabel, firstNameField, lastNameLabel, lastNameField, phoneNumberLabel, phoneNumberField, addressLabel, addressField, registerButton);
-        Scene registerScene = new Scene(registerPane, 800, 600);
+        AddUserPane.getChildren().addAll(emailLabel, emailField, passwordLabel, passwordField, confirmPasswordLabel, confirmPasswordField, firstNameLabel, firstNameField, lastNameLabel, lastNameField, phoneNumberLabel, phoneNumberField, addressLabel, addressField, AddUserButton);
+        Scene AddUserScene = new Scene(AddUserPane, 800, 600);
         primaryStage.setMaximized(true);
-        primaryStage.setScene(registerScene);
+        primaryStage.setScene(AddUserScene);
     }
 }
