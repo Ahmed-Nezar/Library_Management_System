@@ -205,6 +205,7 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         "-fx-font-size: 30px;"+
         "-fx-pref-width: 300px;"+
         "-fx-pref-height: 50px;"));
+        blockUserButton.setOnAction(new BlockUser(primaryStage));
         Button searchUserButton = new Button("Search for User");
         searchUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
         "-fx-background-radius: 30px;" +
@@ -227,6 +228,10 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         "-fx-font-size: 30px;"+
         "-fx-pref-width: 300px;"+
         "-fx-pref-height: 50px;"));
+        searchUserButton.setOnAction(e -> {
+            SearchUser searchUser = new SearchUser(primaryStage);
+            searchUser.handle(event);
+        });
         Button logoutButton = new Button("LogoutButton");
         logoutButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
         "-fx-background-radius: 30px;" +

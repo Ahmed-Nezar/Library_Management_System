@@ -17,7 +17,7 @@ public class Users extends Library{
         this.CellPhone = CellPhone;
         this.Email = Email;
         this.Blocked = Blocked;
-        
+        Library.users.add(this);
         UserCount++;
     }
     /*

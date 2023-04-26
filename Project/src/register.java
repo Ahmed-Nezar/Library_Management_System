@@ -178,6 +178,7 @@ class register implements EventHandler<ActionEvent> {
 
         registerPane.getChildren().addAll(emailLabel, emailField, passwordLabel, passwordField, confirmPasswordLabel, confirmPasswordField, firstNameLabel, firstNameField, lastNameLabel, lastNameField, phoneNumberLabel, phoneNumberField, addressLabel, addressField, registerButton);
         Scene registerScene = new Scene(registerPane, 800, 600);
+        primaryStage.setMaximized(true);
         primaryStage.setScene(registerScene);
     }
 }

@@ -12,6 +12,7 @@ public class Books extends Library{
         this.ISBN = ISBN;
         this.Available = true;
         BookCount++;
+        Library.books.add(this);
     }
 
     public String getTitle() {

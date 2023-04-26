@@ -1,14 +1,21 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Librarians extends Users {
-    private int ID;
+    private String ID;
     private String Type;
     private static int LibrarianCount = 0;
     public Librarians(String Password, String FirstName, String LastName, String Address, String CellPhone, String Email, boolean Blocked) {
         super(Password, FirstName, LastName, Address, CellPhone, Email, Blocked);
-        this.ID = LibrarianCount;
+        LibrarianCount++;
+        this.ID = "L" + LibrarianCount + FirstName.charAt(0) + LastName.charAt(0);
         this.Type = "Librarian";
+        
+        Library.librarians.add(this);
     }
     
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
@@ -33,9 +40,20 @@ public class Librarians extends Users {
         Library.books.stream().filter(book -> book.getTitle().equals(title)).forEach(System.out::println);
     }
 
-    public void searchMembers(String FirstName, String LastName) {
-        Library.users.stream().filter(user -> user.getFirstName().equals(FirstName) && user.getLastName().equals(LastName)).forEach(System.out::println);
+    public static List<Users> searchMembers(String search) {
+        return Library.users.stream()
+                .filter(user -> 
+                    user.getFirstName().equalsIgnoreCase(search) ||
+                    user.getLastName().equalsIgnoreCase(search) ||
+                    user.getCellPhone().equalsIgnoreCase(search) ||
+                    user.getEmail().equalsIgnoreCase(search) ||
+                    user.getAddress().equalsIgnoreCase(search) ||
+                    (user.getFirstName() + " " + user.getLastName()).equalsIgnoreCase(search)
+                )
+                .collect(Collectors.toList());
     }
+    
+    
 
     public void addUserToOrderList(Users user, Books book) {
         Order order = new Order(user, book);
@@ -46,9 +64,7 @@ public class Librarians extends Users {
         Library.orders.removeIf(order -> order.getUser().equals(user));
     }
     
-    public void blockUser(Users user) {
-        user.setBlocked(true);
-    }
+    
     
     public void rentBook(Books book) {
         Loan loan = new Loan(this, book);
@@ -56,7 +72,7 @@ public class Librarians extends Users {
     }
     @Override
     public String toString() {
-        return "User ID: " + this.ID +
+        return "Librarian ID: " + this.ID +
                 ", Name: " + super.getFirstName() + " " + super.getLastName() +
                 ", Address: " + super.getAddress() +
                 ", Cellphone: " + super.getCellPhone() +

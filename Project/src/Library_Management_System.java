@@ -111,23 +111,36 @@ public class Library_Management_System extends Application  {
         registerButton.setFont(Font.font(20));
         registerButton.setOnAction(new register(primaryStage));
         quitButton.setFont(Font.font(20));
-        quitButton.setOnAction(new MainMenu_Readers(primaryStage));
+        quitButton.setOnAction(new MainMenu_Librarians(primaryStage));
 
         VBox vbox = new VBox(header, loginButton, registerButton, quitButton);
         vbox.setSpacing(20);
         vbox.setAlignment(Pos.CENTER);
         vbox.setStyle("-fx-padding: 20px;");
         startPage.getChildren().add(vbox);
-
+        
         Scene scene = new Scene(startPage, 800, 600);
         primaryStage.setTitle("Library Management System");
+        primaryStage.setMaximized(true);
         primaryStage.setScene(scene);
         primaryStage.show();
         
         rect.heightProperty().bind(primaryStage.heightProperty());
     }
     public static void main(String[] args) throws Exception {
-        Librarians librarian = new Librarians("admin", "admin", "admin", "admin", "admin", "admin", true);
+        Librarians librarian = new Librarians("testlibrarian", "TestLibrarian", "TestLibrarian", "TestLibrarian", "TestLibrarian", "TestLibrarian", false);
+        Readers reader = new Readers("testreader", "TestReader", "TestReader", "TestReader", "TestReader", "TestReader", false);
+        Books book1 = new Books("The Catcher in the Rye", "Fiction", "J.D. Salinger", 123456789, true);
+        Books book2 = new Books("To Kill a Mockingbird", "Fiction", "Harper Lee", 234567890, true);
+        Books book3 = new Books("1984", "Fiction", "George Orwell", 345678901, true);
+        Books book4 = new Books("Pride and Prejudice", "Fiction", "Jane Austen", 456789012, true);
+        Books book5 = new Books("The Great Gatsby", "Fiction", "F. Scott Fitzgerald", 567890123, true);
+        Books book6 = new Books("Animal Farm", "Fiction", "George Orwell", 678901234, true);
+        Books book7 = new Books("Brave New World", "Fiction", "Aldous Huxley", 789012345, true);
+        Books book8 = new Books("The Lord of the Rings", "Fiction", "J.R.R. Tolkien", 890123456, true);
+        Books book9 = new Books("The Hobbit", "Fiction", "J.R.R. Tolkien", 901234567, true);
+        Books book10 = new Books("Harry Potter and the Philosopher's Stone", "Fiction", "J.K. Rowling", 123450987, true);
+        
         Application.launch(args);
     }
 }

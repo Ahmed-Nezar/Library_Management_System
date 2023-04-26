@@ -155,7 +155,7 @@ public class MainMenu_Readers implements EventHandler<ActionEvent>{
         "-fx-pref-height: 50px;")
         );
         logOut.setOnAction(new login(primaryStage));
-        Label welcomeLabel = new Label("Welcome to the library");
+        Label welcomeLabel = new Label("Welcome Reader");
         welcomeLabel.setStyle("-fx-font-size: 60px;" +
         "-fx-text-align: center;"+ 
         "-fx-text-fill:rgba(50,50,50);"+

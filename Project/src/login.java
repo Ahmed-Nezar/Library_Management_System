@@ -17,6 +17,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 public class login implements EventHandler<ActionEvent>{
     private Stage primaryStage;
 
@@ -34,13 +37,13 @@ public class login implements EventHandler<ActionEvent>{
         loginPane.setPadding(new Insets(10, 10, 10, 10));
         loginPane.setVgap(10);
         loginPane.setHgap(10);
-        Label emailLabel = new Label("Email:");
-        emailLabel.setFont(Font.font(20));
-        TextField emailField = new TextField();
-        emailField.setPromptText("Enter your email");
-        emailField.setFont(Font.font(20));
-        GridPane.setConstraints(emailLabel, 0, 0);
-        GridPane.setConstraints(emailField, 1, 0);
+        Label UsernameLabel = new Label("Username:");
+        UsernameLabel.setFont(Font.font(20));
+        TextField UsernameField = new TextField();
+        UsernameField.setPromptText("Enter your Username");
+        UsernameField.setFont(Font.font(20));
+        GridPane.setConstraints(UsernameLabel, 0, 0);
+        GridPane.setConstraints(UsernameField, 1, 0);
         Label passwordLabel = new Label("Password:");
         passwordLabel.setFont(Font.font(20));
         PasswordField passwordField = new PasswordField();
@@ -72,10 +75,34 @@ public class login implements EventHandler<ActionEvent>{
         "-fx-pref-width: 300px;" +
         "-fx-pref-height: 10px;")
         );
+        loginButton.setOnAction(e -> {
+            String username = UsernameField.getText();
+            String password = passwordField.getText();
+            
+            
+            
+            if(Library.librarians.stream().anyMatch(librarian -> librarian.getID().equals(username) && librarian.getPassword().equals(password))) {
+                MainMenu_Librarians mainMenu_Librarians = new MainMenu_Librarians(primaryStage);
+                mainMenu_Librarians.handle(event);
+            } 
+            else if(Library.readers.stream().anyMatch(reader -> reader.getID().equals(username) && reader.getPassword().equals(password))) {
+                MainMenu_Readers mainMenu_Readers = new MainMenu_Readers(primaryStage);
+                mainMenu_Readers.handle(event);
+            }
+            else {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Invalid Username or Password");
+                alert.setContentText("Please try again");
+                alert.showAndWait();
+            }
+            
+        });
         loginButton.setFont(Font.font(20));
         GridPane.setConstraints(loginButton, 1, 2);
-        loginPane.getChildren().addAll(emailLabel, emailField, passwordLabel, passwordField, loginButton);
+        loginPane.getChildren().addAll(UsernameLabel, UsernameField, passwordLabel, passwordField, loginButton);
         Scene loginScene = new Scene(loginPane, 800, 600);
+        primaryStage.setMaximized(true);
         primaryStage.setScene(loginScene); 
     }
 }
