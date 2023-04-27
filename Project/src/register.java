@@ -145,7 +145,7 @@ class register implements EventHandler<ActionEvent> {
                     alert.showAndWait();
                 } 
                 else {
-                    Library.readers.add(new Readers(password, firstName, lastName, address, phoneNumber, email,false));
+                    Librarians.addReaders(new Readers(password, firstName, lastName, address, phoneNumber, email,false));
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Success");
                     alert.setHeaderText("Success");

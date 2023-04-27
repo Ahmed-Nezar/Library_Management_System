@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Books extends Library{
     private String Title;
     private String Genre;
@@ -12,7 +14,6 @@ public class Books extends Library{
         this.ISBN = ISBN;
         this.Available = true;
         BookCount++;
-        Library.books.add(this);
     }
 
     public String getTitle() {
@@ -42,10 +43,22 @@ public class Books extends Library{
     public static int getBookCount() {
         return BookCount;
     }
-    
+    public static List<Books> searchBooks(String search) {
+        return Library.books.stream()
+                .filter(book -> 
+                    book.getTitle().equalsIgnoreCase(search) ||
+                    book.getAuthor().equalsIgnoreCase(search) ||
+                    book.getGenre().equalsIgnoreCase(search) ||
+                    String.valueOf(book.getISBN()).equalsIgnoreCase(search)
+                )
+                .collect(java.util.stream.Collectors.toList());
+    }
+    public static void AddBook(Books book) {
+        Library.books.add(book);
+    }
     @Override
     public String toString() {
-        return "Book ID: " + ISBN +
+        return "ISBN: " + ISBN +
                 ", Title: " + Title +
                 ", Author: " + Author +
                 ", Genre: " + Genre +

@@ -22,7 +22,7 @@ import javafx.scene.control.Alert.AlertType;
 class AddUser implements EventHandler<ActionEvent> {
     private Stage primaryStage;
     Readers readers;
-    
+
     public AddUser(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
@@ -145,7 +145,7 @@ class AddUser implements EventHandler<ActionEvent> {
                     alert.showAndWait();
                 } 
                 else {
-                    Library.readers.add(new Readers(password, firstName, lastName, address, phoneNumber, email,false));                    
+                    Librarians.addReaders(new Readers(password, firstName, lastName, address, phoneNumber, email,false));
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Success");
                     alert.setHeaderText("Success");

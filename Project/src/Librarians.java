@@ -11,7 +11,7 @@ public class Librarians extends Users {
         this.ID = "L" + LibrarianCount + FirstName.charAt(0) + LastName.charAt(0);
         this.Type = "Librarian";
         
-        Library.librarians.add(this);
+    Library.librarians.add(this);
     }
     
     public String getID() {
@@ -26,9 +26,9 @@ public class Librarians extends Users {
         Library.books.remove(book);
     }
 
-    public void addUser(Users user) {
+    public static void addReaders(Readers readers) {
 
-        Library.users.add(user);
+        Library.users.add(readers);
     }
 
     public void removeUser(Users user) {

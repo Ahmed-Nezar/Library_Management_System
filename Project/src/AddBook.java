@@ -4,9 +4,6 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
-import javax.sound.sampled.AudioFileFormat.Type;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.Background;
@@ -115,7 +112,7 @@ class AddBook implements EventHandler<ActionEvent> {
                 else{
                     try {
                         long isbn1 = Long.parseLong(isbn);
-                        Library.books.add(new Books(title, genre, author, isbn1,true));
+                        Books.AddBook(new Books(title, genre, author, isbn1,true));
                         Alert alert = new Alert(AlertType.INFORMATION);
                         alert.setTitle("Success");
                         alert.setHeaderText("Success");

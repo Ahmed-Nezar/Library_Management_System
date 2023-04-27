@@ -130,6 +130,7 @@ public class Library_Management_System extends Application  {
     public static void main(String[] args) throws Exception {
         Librarians librarian = new Librarians("testlibrarian", "TestLibrarian", "TestLibrarian", "TestLibrarian", "TestLibrarian", "TestLibrarian", false);
         Readers reader = new Readers("testreader", "TestReader", "TestReader", "TestReader", "TestReader", "TestReader", false);
+        Librarians.addReaders(reader);
         Books book1 = new Books("The Catcher in the Rye", "Fiction", "J.D. Salinger", 123456789, true);
         Books book2 = new Books("To Kill a Mockingbird", "Fiction", "Harper Lee", 234567890, true);
         Books book3 = new Books("1984", "Fiction", "George Orwell", 345678901, true);
@@ -140,7 +141,16 @@ public class Library_Management_System extends Application  {
         Books book8 = new Books("The Lord of the Rings", "Fiction", "J.R.R. Tolkien", 890123456, true);
         Books book9 = new Books("The Hobbit", "Fiction", "J.R.R. Tolkien", 901234567, true);
         Books book10 = new Books("Harry Potter and the Philosopher's Stone", "Fiction", "J.K. Rowling", 123450987, true);
-        
+        Books.AddBook(book10);
+        Books.AddBook(book9);
+        Books.AddBook(book8);
+        Books.AddBook(book7);
+        Books.AddBook(book6);
+        Books.AddBook(book5);
+        Books.AddBook(book4);
+        Books.AddBook(book3);
+        Books.AddBook(book2);
+        Books.AddBook(book1);
         Application.launch(args);
     }
 }

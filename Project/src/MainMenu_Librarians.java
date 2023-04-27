@@ -75,6 +75,7 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         "-fx-pref-width: 300px;"+
         "-fx-pref-height: 50px;"));
         Button SearchForBookButton = new Button("Search for a book");
+        SearchForBookButton.setOnAction(new SearchBooks(primaryStage));
         SearchForBookButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
         "-fx-background-radius: 30px;" +
         "-fx-border-radius: 2px;" +
