@@ -53,6 +53,7 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         "-fx-pref-width: 300px;"+
         "-fx-pref-height: 50px;"));
         Button RemoveBookButton = new Button("Remove Book");
+        RemoveBookButton.setOnAction(new RemoveBook(primaryStage));
         RemoveBookButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
         "-fx-background-radius: 30px;" +
         "-fx-border-radius: 2px;" +
@@ -121,6 +122,7 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         "-fx-pref-width: 300px;"+
         "-fx-pref-height: 50px;"));
         Button removeUserButton = new Button("Remove User");
+        
         removeUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
         "-fx-background-radius: 30px;" +
         "-fx-border-radius: 2px;" +

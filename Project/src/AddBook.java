@@ -93,8 +93,35 @@ class AddBook implements EventHandler<ActionEvent> {
         "-fx-pref-width: 300px;" +
         "-fx-pref-height: 10px;")
         );
+        Button backButton = new Button("Back");
+        backButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
+        "-fx-background-radius: 5px;" +
+        "-fx-border-radius: 2px;" +
+        "-fx-text-fill: white;" +
+        "-fx-font-size: 30px;" +
+        "-fx-pref-width: 300px;" +
+        "-fx-pref-height: 10px;");
+        backButton.setOnMouseEntered(e -> backButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
+        "-fx-background-radius: 5px;" +
+        "-fx-border-radius: 2px;" +
+        "-fx-text-fill: white;" +
+        "-fx-font-size: 30px;" +
+        "-fx-pref-width: 300px;" +
+        "-fx-pref-height: 10px;")
+        );
+        backButton.setOnMouseExited(e -> backButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
+        "-fx-background-radius: 5px;" +
+        "-fx-border-radius: 2px;" +
+        "-fx-text-fill: white;" +
+        "-fx-font-size: 30px;" +
+        "-fx-pref-width: 300px;" +
+        "-fx-pref-height: 10px;")
+        );
+        backButton.setOnAction(new MainMenu_Librarians(primaryStage));
+        backButton.setFont(Font.font(20));
         AddBookButton.setFont(Font.font(20));
         GridPane.setConstraints(AddBookButton, 1, 7);
+        GridPane.setConstraints(backButton, 1, 8);
         AddBookButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -136,7 +163,7 @@ class AddBook implements EventHandler<ActionEvent> {
             }
         });
 
-        AddBookPane.getChildren().addAll(titLabel, titleField, genreLabel, genrField, authorLabel, authorField, isbnLabel, isbnField, AddBookButton);
+        AddBookPane.getChildren().addAll(titLabel, titleField, genreLabel, genrField, authorLabel, authorField, isbnLabel, isbnField, AddBookButton, backButton);
         Scene AddBookScene = new Scene(AddBookPane, 800, 600);
         primaryStage.setMaximized(true);
         primaryStage.setScene(AddBookScene);

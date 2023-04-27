@@ -113,8 +113,35 @@ class AddUser implements EventHandler<ActionEvent> {
         "-fx-pref-width: 300px;" +
         "-fx-pref-height: 10px;")
         );
+        Button backButton = new Button("Back");
+        backButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
+        "-fx-background-radius: 5px;" +
+        "-fx-border-radius: 2px;" +
+        "-fx-text-fill: white;" +
+        "-fx-font-size: 30px;" +
+        "-fx-pref-width: 300px;" +
+        "-fx-pref-height: 10px;");
+        backButton.setOnMouseEntered(e -> backButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
+        "-fx-background-radius: 5px;" +
+        "-fx-border-radius: 2px;" +
+        "-fx-text-fill: white;" +
+        "-fx-font-size: 30px;" +
+        "-fx-pref-width: 300px;" +
+        "-fx-pref-height: 10px;")
+        );
+        backButton.setOnMouseExited(e -> backButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
+        "-fx-background-radius: 5px;" +
+        "-fx-border-radius: 2px;" +
+        "-fx-text-fill: white;" +
+        "-fx-font-size: 30px;" +
+        "-fx-pref-width: 300px;" +
+        "-fx-pref-height: 10px;")
+        );
+        backButton.setFont(Font.font(20));
+        backButton.setOnAction(new MainMenu_Librarians(primaryStage));
         AddUserButton.setFont(Font.font(20));
         GridPane.setConstraints(AddUserButton, 1, 7);
+        GridPane.setConstraints(backButton, 1, 8);
         AddUserButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -159,7 +186,7 @@ class AddUser implements EventHandler<ActionEvent> {
             }
         });
 
-        AddUserPane.getChildren().addAll(emailLabel, emailField, passwordLabel, passwordField, confirmPasswordLabel, confirmPasswordField, firstNameLabel, firstNameField, lastNameLabel, lastNameField, phoneNumberLabel, phoneNumberField, addressLabel, addressField, AddUserButton);
+        AddUserPane.getChildren().addAll(emailLabel, emailField, passwordLabel, passwordField, confirmPasswordLabel, confirmPasswordField, firstNameLabel, firstNameField, lastNameLabel, lastNameField, phoneNumberLabel, phoneNumberField, addressLabel, addressField, AddUserButton, backButton);
         Scene AddUserScene = new Scene(AddUserPane, 800, 600);
         primaryStage.setMaximized(true);
         primaryStage.setScene(AddUserScene);

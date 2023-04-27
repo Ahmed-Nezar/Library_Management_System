@@ -48,13 +48,15 @@ public class Books extends Library{
                 .filter(book -> 
                     book.getTitle().equalsIgnoreCase(search) ||
                     book.getAuthor().equalsIgnoreCase(search) ||
-                    book.getGenre().equalsIgnoreCase(search) ||
                     String.valueOf(book.getISBN()).equalsIgnoreCase(search)
                 )
                 .collect(java.util.stream.Collectors.toList());
     }
     public static void AddBook(Books book) {
         Library.books.add(book);
+    }
+    public static void RemoveBook(int index) {
+        Library.books.remove(index);
     }
     @Override
     public String toString() {
