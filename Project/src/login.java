@@ -52,29 +52,6 @@ public class login implements EventHandler<ActionEvent>{
         GridPane.setConstraints(passwordLabel, 0, 1);
         GridPane.setConstraints(passwordField, 1, 1);
         Button loginButton = new Button("Login");
-        loginButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;");
-        loginButton.setOnMouseEntered(e -> loginButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;")
-        );
-        loginButton.setOnMouseExited(e -> loginButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-         "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;")
-        );
         loginButton.setOnAction(e -> {
             String username = UsernameField.getText();
             String password = passwordField.getText();
@@ -102,6 +79,7 @@ public class login implements EventHandler<ActionEvent>{
         GridPane.setConstraints(loginButton, 1, 2);
         loginPane.getChildren().addAll(UsernameLabel, UsernameField, passwordLabel, passwordField, loginButton);
         Scene loginScene = new Scene(loginPane, 800, 600);
+        loginScene.getStylesheets().add("buttonStyle.css");
         primaryStage.setMaximized(true);
         primaryStage.setScene(loginScene); 
     }

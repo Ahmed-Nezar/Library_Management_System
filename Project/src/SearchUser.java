@@ -46,29 +46,6 @@ public class SearchUser implements EventHandler<ActionEvent> {
         header.setFill(Color.WHITE);
 
         Button searchButton = new Button("Search");
-        searchButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 200px;" +
-        "-fx-pref-height: 50px;");
-        searchButton.setOnMouseEntered(e -> searchButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 200px;" +
-        "-fx-pref-height: 50px;")
-        );
-        searchButton.setOnMouseExited(e -> searchButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 200px;" +
-        "-fx-pref-height: 50px;")
-        );
         TextField searchField = new TextField();
         searchField.setPromptText("Search");
         searchField.setFont(Font.font(20));
@@ -111,29 +88,6 @@ public class SearchUser implements EventHandler<ActionEvent> {
             }
         });
         Button backButton = new Button("Back");
-        backButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 200px;" +
-        "-fx-pref-height: 50px;");
-        backButton.setOnMouseEntered(e -> backButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 200px;" +
-        "-fx-pref-height: 50px;")
-        );
-        backButton.setOnMouseExited(e -> backButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 200px;" +
-        "-fx-pref-height: 50px;")
-        );
         backButton.setOnAction(new MainMenu_Librarians(primaryStage));
         
 
@@ -144,6 +98,7 @@ public class SearchUser implements EventHandler<ActionEvent> {
         searchPage.getChildren().add(vbox);
 
         Scene scene = new Scene(searchPage, 800, 600);
+        scene.getStylesheets().add("buttonStyle.css");
         primaryStage.setTitle("Library Management System");
         primaryStage.setMaximized(true);
         primaryStage.setScene(scene);

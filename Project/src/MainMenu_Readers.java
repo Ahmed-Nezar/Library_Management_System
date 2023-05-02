@@ -34,126 +34,16 @@ public class MainMenu_Readers implements EventHandler<ActionEvent>{
         MainMenuPane.setPadding(new Insets(10, 10, 10, 10));
         MainMenuPane.setVgap(10);
         MainMenuPane.setHgap(10);
-        Button SearchForBook = new Button("Search for a book");
-        SearchForBook.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;");
-        SearchForBook.setOnMouseEntered(e -> SearchForBook.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-font-size: 30px;" +
-        "-fx-pref-height: 50px;")
-        );
-        SearchForBook.setOnMouseExited(e -> SearchForBook.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 50px;")
-        );
-        Button AddBook = new Button("Add a book");
-        AddBook.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;");
-        AddBook.setOnMouseEntered(e -> AddBook.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;")
-        );
-        AddBook.setOnMouseExited(e -> AddBook.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;")
-        );
-        Button RemoveBook = new Button("Remove a book");
-        RemoveBook.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;");
-        RemoveBook.setOnMouseEntered(e -> RemoveBook.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;")
-        );
-        RemoveBook.setOnMouseExited(e -> RemoveBook.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;")
-        );
+        Button SearchForBook = new Button("Search");
+        
+        
+        Button AdditionToOrderList = new Button("Add to Order List");
+        
+       
+        
         Button RentBook = new Button("Rent a book");
-        RentBook.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;");
-        RentBook.setOnMouseEntered(e -> RentBook.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;")
-        );
-        RentBook.setOnMouseExited(e -> RentBook.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;")
-        );
+
         Button logOut = new Button("Log out");
-        logOut.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;");
-        logOut.setOnMouseEntered(e -> logOut.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;")
-        );
-        logOut.setOnMouseExited(e -> logOut.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;")
-        );
         logOut.setOnAction(e -> {
             Library_Managment_System Home = new Library_Managment_System();
             Home.start(primaryStage);
@@ -165,11 +55,12 @@ public class MainMenu_Readers implements EventHandler<ActionEvent>{
         "-fx-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"+
         "-fx-font-weight: bold" );
         
-        VBox MainMenuButtons = new VBox(welcomeLabel,SearchForBook, AddBook, RemoveBook, RentBook,logOut);
+        VBox MainMenuButtons = new VBox(welcomeLabel,SearchForBook, AdditionToOrderList, RentBook,logOut);
         MainMenuButtons.setSpacing(10);
         MainMenuButtons.setAlignment(Pos.CENTER);
         MainMenuPane.getChildren().addAll(MainMenuButtons);
         Scene MainMenuScene = new Scene(MainMenuPane, 800, 600);
+        MainMenuScene.getStylesheets().add("buttonStyle.css");
         primaryStage.setScene(MainMenuScene);
         primaryStage.show();
     }

@@ -29,252 +29,52 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         mainMenuPane.setPadding(new Insets(10, 10, 10, 10));
         mainMenuPane.setVgap(10);
         mainMenuPane.setHgap(10);
+
         Button addBookButton = new Button("Add Book");
         addBookButton.setOnAction(new AddBook(primaryStage));
-        addBookButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;");   
-        addBookButton.setOnMouseEntered(e -> addBookButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        addBookButton.setOnMouseExited(e -> addBookButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        Button RemoveBookButton = new Button("Remove Book");
-        RemoveBookButton.setOnAction(new RemoveBook(primaryStage));
-        RemoveBookButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;");
-        RemoveBookButton.setOnMouseEntered(e -> RemoveBookButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        RemoveBookButton.setOnMouseExited(e -> RemoveBookButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        Button SearchForBookButton = new Button("Search for a book");
-        SearchForBookButton.setOnAction(new SearchBooks(primaryStage));
-        SearchForBookButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;");
-        SearchForBookButton.setOnMouseEntered(e -> SearchForBookButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        SearchForBookButton.setOnMouseExited(e -> SearchForBookButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
+        
+        
+        Button SearchRemoveBookButton = new Button("Search/Remove Book");
+        SearchRemoveBookButton.setOnAction(new RemoveBook(primaryStage));
+        
         Button addUserButton = new Button("Add User");
         addUserButton.setOnAction(new AddUser(primaryStage));
-        addUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;");
-        addUserButton.setOnMouseEntered(e -> addUserButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        addUserButton.setOnMouseExited(e -> addUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        Button removeUserButton = new Button("Remove User");
         
-        removeUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;");
-        removeUserButton.setOnMouseEntered(e -> removeUserButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        removeUserButton.setOnMouseExited(e -> removeUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        Button assignUserButton = new Button("Assign Books");
-        assignUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;");
-        assignUserButton.setOnMouseEntered(e -> assignUserButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        assignUserButton.setOnMouseExited(e -> assignUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        Button rentBookButton = new Button("Rent Book");
-        rentBookButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;");
-        rentBookButton.setOnMouseEntered(e -> rentBookButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        rentBookButton.setOnMouseExited(e -> rentBookButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        Button blockUserButton = new Button("Block User");
-        blockUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;");
-        blockUserButton.setOnMouseEntered(e -> blockUserButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        blockUserButton.setOnMouseExited(e -> blockUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        blockUserButton.setOnAction(new BlockUser(primaryStage));
-        Button searchUserButton = new Button("Search for User");
-        searchUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;");
-        searchUserButton.setOnMouseEntered(e -> searchUserButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        searchUserButton.setOnMouseExited(e -> searchUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        searchUserButton.setOnAction(e -> {
+        Button SearchRemoveUserButton = new Button("Search/Remove User");
+        SearchRemoveUserButton.setOnAction(e -> {
             SearchUser searchUser = new SearchUser(primaryStage);
             searchUser.handle(event);
         });
+
+        Button assignUserButton = new Button("Assign Books");
+        // assignUserButton.setOnAction(new AssignUser(primaryStage));
+
+        Button rentBookButton = new Button("Rent Book");
+        // rentBookButton.setOnAction(new RentBook(primaryStage));
+
+        Button blockUserButton = new Button("Block User");
+        blockUserButton.setOnAction(new BlockUser(primaryStage));
+
+        
+
+
         Button logoutButton = new Button("Logout");
         logoutButton.setOnAction(e -> {
             Library_Managment_System Home = new Library_Managment_System();
             Home.start(primaryStage);
         });
-        logoutButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;");
-        logoutButton.setOnMouseEntered(e -> logoutButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
-        logoutButton.setOnMouseExited(e -> logoutButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;"+
-        "-fx-pref-width: 300px;"+
-        "-fx-pref-height: 50px;"));
+        
         GridPane.setConstraints(addBookButton, 0, 0);
-        GridPane.setConstraints(RemoveBookButton, 1, 0);
-        GridPane.setConstraints(SearchForBookButton, 0, 1);
-        GridPane.setConstraints(addUserButton, 1, 1);
-        GridPane.setConstraints(removeUserButton, 0, 2);
+        GridPane.setConstraints(addUserButton, 1, 0);
+        GridPane.setConstraints(SearchRemoveBookButton , 0, 1);
+        GridPane.setConstraints(SearchRemoveUserButton , 1, 1);
+        GridPane.setConstraints(rentBookButton, 0, 2);
         GridPane.setConstraints(assignUserButton, 1, 2);
-        GridPane.setConstraints(rentBookButton, 0, 3);
-        GridPane.setConstraints(blockUserButton, 1, 3);
-        GridPane.setConstraints(searchUserButton, 0, 4);
-        GridPane.setConstraints(logoutButton, 1, 4);
-        mainMenuPane.getChildren().addAll(addBookButton,RemoveBookButton,SearchForBookButton,addUserButton,removeUserButton,assignUserButton,rentBookButton,blockUserButton,searchUserButton,logoutButton);
+        GridPane.setConstraints(blockUserButton, 0, 3);
+        GridPane.setConstraints(logoutButton, 1, 3);
+        mainMenuPane.getChildren().addAll(addBookButton,SearchRemoveBookButton,addUserButton,SearchRemoveUserButton,assignUserButton,rentBookButton,blockUserButton,logoutButton);
         Scene mainMenuScene = new Scene(mainMenuPane, 800, 600);
+        mainMenuScene.getStylesheets().add("buttonStyle.css");
         primaryStage.setScene(mainMenuScene);
         primaryStage.show();
     }

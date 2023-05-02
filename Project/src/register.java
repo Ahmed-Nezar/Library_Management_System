@@ -4,6 +4,9 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+
+import java.util.logging.Handler;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.Background;
@@ -90,29 +93,6 @@ class register implements EventHandler<ActionEvent> {
         GridPane.setConstraints(addressField, 1, 6);
 
         Button registerButton = new Button("Register");
-        registerButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;");
-        registerButton.setOnMouseEntered(e -> registerButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;")
-        );
-        registerButton.setOnMouseExited(e -> registerButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;")
-        );
         registerButton.setFont(Font.font(20));
         GridPane.setConstraints(registerButton, 1, 7);
         registerButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -124,43 +104,64 @@ class register implements EventHandler<ActionEvent> {
                 String firstName = firstNameField.getText();
                 String lastName = lastNameField.getText();
                 String phoneNumber = phoneNumberField.getText();
-                String address = addressField.getText();
-                if (email.equals("") || password.equals("") || confirmPassword.equals("") || firstName.equals("") || lastName.equals("") || phoneNumber.equals("") || address.equals("")) {
+                
+                try {
+                    int phoneNumberInt = Integer.parseInt(phoneNumber);
+                    String address = addressField.getText();
+                    if (email.equals("") || password.equals("") || confirmPassword.equals("") || firstName.equals("") || lastName.equals("") || phoneNumber.equals("") || address.equals("")) {
+                        Alert alert = new Alert(AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("Error");
+                        alert.setContentText("Please fill in all the fields");
+                        alert.showAndWait();
+                    } else if (!password.equals(confirmPassword)) {
+                        Alert alert = new Alert(AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("Error");
+                        alert.setContentText("Passwords do not match");
+                        alert.showAndWait();
+                    } else if (email.contains("@") == false || email.contains(".com") == false) {
+                        Alert alert = new Alert(AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("Error");
+                        alert.setContentText("Invalid email");
+                        alert.showAndWait();
+                    } 
+                    else {
+                        Library.addReaders(new Readers(password, firstName, lastName, address, phoneNumber, email,false));
+                        Alert alert = new Alert(AlertType.INFORMATION);
+                        alert.setTitle("Success");
+                        alert.setHeaderText("Success");
+                        alert.setContentText("You have successfully registered\n"+"Your Username is: "+ Library.readers.get(Library.readers.size()-1).getID() );
+                        alert.showAndWait();
+                        login LOG = new login(primaryStage);
+                        LOG.handle(event);        
+                        
+                    }
+                } catch (NumberFormatException e) {
                     Alert alert = new Alert(AlertType.ERROR);
                     alert.setTitle("Error");
                     alert.setHeaderText("Error");
-                    alert.setContentText("Please fill in all the fields");
+                    alert.setContentText("Invalid phone number");
                     alert.showAndWait();
-                } else if (!password.equals(confirmPassword)) {
-                    Alert alert = new Alert(AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText("Error");
-                    alert.setContentText("Passwords do not match");
-                    alert.showAndWait();
-                } else if (email.contains("@") == false || email.contains(".com") == false) {
-                    Alert alert = new Alert(AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText("Error");
-                    alert.setContentText("Invalid email");
-                    alert.showAndWait();
-                } 
-                else {
-                    Library.addReaders(new Readers(password, firstName, lastName, address, phoneNumber, email,false));
-                    Alert alert = new Alert(AlertType.INFORMATION);
-                    alert.setTitle("Success");
-                    alert.setHeaderText("Success");
-                    alert.setContentText("You have successfully registered\n"+"Your Username is: "+ Library.readers.get(Library.readers.size()-1).getID() );
-                    alert.showAndWait();
-                    login LOG = new login(primaryStage);
-                    LOG.handle(event);        
                     
-                }   
+                }
+                   
                 
             }
         });
+        Button backButton = new Button("Back");
+        backButton.setFont(Font.font(20));
+        GridPane.setConstraints(backButton, 1, 8);
+        backButton.setOnAction(e -> {
+            Library_Managment_System Home = new Library_Managment_System();
+            Home.start(primaryStage);
+        });
+           
 
-        registerPane.getChildren().addAll(emailLabel, emailField, passwordLabel, passwordField, confirmPasswordLabel, confirmPasswordField, firstNameLabel, firstNameField, lastNameLabel, lastNameField, phoneNumberLabel, phoneNumberField, addressLabel, addressField, registerButton);
+        registerPane.getChildren().addAll(emailLabel, emailField, passwordLabel, passwordField, confirmPasswordLabel, confirmPasswordField, firstNameLabel, firstNameField, lastNameLabel, lastNameField, phoneNumberLabel, phoneNumberField, addressLabel, addressField, registerButton, backButton);
         Scene registerScene = new Scene(registerPane, 800, 600);
+        registerScene.getStylesheets().add("buttonStyle.css");
         primaryStage.setMaximized(true);
         primaryStage.setScene(registerScene);
     }

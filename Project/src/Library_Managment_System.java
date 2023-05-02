@@ -32,78 +32,12 @@ public class Library_Managment_System extends Application {
         header.setFill(Color.WHITE);
 
         Button loginButton = new Button("Login");
-        loginButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 200px;" +
-        "-fx-pref-height: 50px;");
-        loginButton.setOnMouseEntered(e -> loginButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 200px;" +
-        "-fx-pref-height: 50px;")
-        );
-        loginButton.setOnMouseExited(e -> loginButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 200px;" +
-        "-fx-pref-height: 50px;")
-        );
+        
 
         Button quitButton = new Button("Quit");
-        quitButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 200px;" +
-        "-fx-pref-height: 50px;");
-        quitButton.setOnMouseEntered(e -> quitButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 200px;" +
-        "-fx-pref-height: 50px;")
-        );
-        quitButton.setOnMouseExited(e -> quitButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 200px;" +
-        "-fx-pref-height: 50px;")
-        );
+        
         Button registerButton = new Button("Register");
-        registerButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 200px;" +
-        "-fx-pref-height: 50px;");
-        registerButton.setOnMouseEntered(e -> registerButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 200px;" +
-        "-fx-pref-height: 50px;")
-        );
-        registerButton.setOnMouseExited(e -> registerButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 30px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 200px;" +
-        "-fx-pref-height: 50px;")
-        );
+        
         loginButton.setFont(Font.font(20));
         loginButton.setOnAction(new login(primaryStage));
         registerButton.setFont(Font.font(20));
@@ -118,6 +52,7 @@ public class Library_Managment_System extends Application {
         startPage.getChildren().add(vbox);
         
         Scene scene = new Scene(startPage, 800, 600);
+        scene.getStylesheets().add("buttonStyle.css");
         primaryStage.setTitle("Library Management System");
         primaryStage.setMaximized(true);
         primaryStage.setScene(scene);

@@ -19,11 +19,6 @@ public class Users {
         this.Blocked = Blocked;
         UserCount++;
     }
-    /*
-    public Users(int iD2, String password2, String firstName2, String lastName2, String address2, String cellPhone2,
-            String email2) {
-    }
-    */
     
 
 

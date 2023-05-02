@@ -70,53 +70,7 @@ class AddBook implements EventHandler<ActionEvent> {
         GridPane.setConstraints(isbnField, 1, 3);
 
         Button AddBookButton = new Button("Add Book");
-        AddBookButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;");
-        AddBookButton.setOnMouseEntered(e -> AddBookButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;")
-        );
-        AddBookButton.setOnMouseExited(e -> AddBookButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;")
-        );
         Button backButton = new Button("Back");
-        backButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;");
-        backButton.setOnMouseEntered(e -> backButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;")
-        );
-        backButton.setOnMouseExited(e -> backButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;")
-        );
         backButton.setOnAction(new MainMenu_Librarians(primaryStage));
         backButton.setFont(Font.font(20));
         AddBookButton.setFont(Font.font(20));
@@ -165,6 +119,7 @@ class AddBook implements EventHandler<ActionEvent> {
 
         AddBookPane.getChildren().addAll(titLabel, titleField, genreLabel, genrField, authorLabel, authorField, isbnLabel, isbnField, AddBookButton, backButton);
         Scene AddBookScene = new Scene(AddBookPane, 800, 600);
+        AddBookScene.getStylesheets().add("buttonStyle.css");
         primaryStage.setMaximized(true);
         primaryStage.setScene(AddBookScene);
     }

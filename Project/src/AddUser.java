@@ -90,53 +90,8 @@ class AddUser implements EventHandler<ActionEvent> {
         GridPane.setConstraints(addressField, 1, 6);
 
         Button AddUserButton = new Button("Add User");
-        AddUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;");
-        AddUserButton.setOnMouseEntered(e -> AddUserButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;")
-        );
-        AddUserButton.setOnMouseExited(e -> AddUserButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;")
-        );
+        
         Button backButton = new Button("Back");
-        backButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;");
-        backButton.setOnMouseEntered(e -> backButton.setStyle("-fx-background-color: rgba(0, 134, 102);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;")
-        );
-        backButton.setOnMouseExited(e -> backButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
-        "-fx-background-radius: 5px;" +
-        "-fx-border-radius: 2px;" +
-        "-fx-text-fill: white;" +
-        "-fx-font-size: 30px;" +
-        "-fx-pref-width: 300px;" +
-        "-fx-pref-height: 10px;")
-        );
         backButton.setFont(Font.font(20));
         backButton.setOnAction(new MainMenu_Librarians(primaryStage));
         AddUserButton.setFont(Font.font(20));
@@ -188,6 +143,7 @@ class AddUser implements EventHandler<ActionEvent> {
 
         AddUserPane.getChildren().addAll(emailLabel, emailField, passwordLabel, passwordField, confirmPasswordLabel, confirmPasswordField, firstNameLabel, firstNameField, lastNameLabel, lastNameField, phoneNumberLabel, phoneNumberField, addressLabel, addressField, AddUserButton, backButton);
         Scene AddUserScene = new Scene(AddUserPane, 800, 600);
+        AddUserScene.getStylesheets().add("buttonStyle.css");
         primaryStage.setMaximized(true);
         primaryStage.setScene(AddUserScene);
     }
