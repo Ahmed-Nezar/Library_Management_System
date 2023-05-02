@@ -2,10 +2,10 @@ public class Books {
     private String Title;
     private String Genre;
     private String Author;
-    private long ISBN;
+    private String ISBN;
     private boolean Available;
     private static int BookCount = 0;
-    public Books(String Title, String Genre, String Author,long ISBN, boolean Available) {
+    public Books(String Title, String Genre, String Author,String ISBN, boolean Available) {
         this.Title = Title;
         this.Genre = Genre;
         this.Author = Author;
@@ -26,7 +26,7 @@ public class Books {
         return Author;
     }
 
-    public long getISBN() {
+    public String getISBN() {
         return ISBN;
     }
     

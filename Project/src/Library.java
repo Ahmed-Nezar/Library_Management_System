@@ -11,6 +11,7 @@ public abstract class Library {
     
     public static void AddBook(Books book) {
         Library.books.add(book);
+        //WriteOutputToFile.writeToFile(book);
     }
     public static void RemoveBook(int index) {
         Library.books.remove(index);
