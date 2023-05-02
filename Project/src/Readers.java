@@ -16,10 +16,6 @@ public class Readers extends Users {
     public String getType() {
         return Type;
     }
-    public void searchBooks(String Title) {
-        Library.books.stream().filter(book -> book.getTitle().equals(Title)).forEach(System.out::println);
-    }
-    
     public void searchMembers(String FirstName, String LastName, String Cellphone) {
         Library.users.stream().filter(user -> user.getFirstName().equals(FirstName) && user.getLastName().equals(LastName) && user.getCellPhone().equals(Cellphone)).forEach(System.out::println);
     }

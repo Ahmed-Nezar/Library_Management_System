@@ -1,5 +1,4 @@
-import java.util.List;
-import java.util.stream.Collectors;
+
 
 public class Librarians extends Users {
     private String ID;
@@ -17,42 +16,6 @@ public class Librarians extends Users {
     public String getID() {
         return ID;
     }
-
-    public void addBook(Books book) {
-        Library.books.add(book);
-    }
-
-    public void removeBook(Books book) {
-        Library.books.remove(book);
-    }
-
-    public static void addReaders(Readers readers) {
-
-        Library.users.add(readers);
-    }
-
-    public void removeUser(Users user) {
-        Library.users.remove(user);
-    }
-
-    public void searchBooks(String title) {
-        Library.books.stream().filter(book -> book.getTitle().equals(title)).forEach(System.out::println);
-    }
-
-    public static List<Users> searchMembers(String search) {
-        return Library.users.stream()
-                .filter(user -> 
-                    user.getFirstName().equalsIgnoreCase(search) ||
-                    user.getLastName().equalsIgnoreCase(search) ||
-                    user.getCellPhone().equalsIgnoreCase(search) ||
-                    user.getEmail().equalsIgnoreCase(search) ||
-                    user.getAddress().equalsIgnoreCase(search) ||
-                    (user.getFirstName() + " " + user.getLastName()).equalsIgnoreCase(search)
-                )
-                .collect(Collectors.toList());
-    }
-    
-    
 
     public void addUserToOrderList(Users user, Books book) {
         Order order = new Order(user, book);

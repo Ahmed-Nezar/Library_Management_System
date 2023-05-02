@@ -1,4 +1,4 @@
-public class Users extends Library{
+public class Users {
     
     private String Password;
     private String FirstName;

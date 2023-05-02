@@ -12,9 +12,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-
-public class Library_Management_System extends Application  {
-    
+public class Library_Managment_System extends Application {
     @Override
     public void start(Stage primaryStage) {
         
@@ -111,7 +109,7 @@ public class Library_Management_System extends Application  {
         registerButton.setFont(Font.font(20));
         registerButton.setOnAction(new register(primaryStage));
         quitButton.setFont(Font.font(20));
-        quitButton.setOnAction(new MainMenu_Librarians(primaryStage));
+        quitButton.setOnAction(e -> primaryStage.close());
 
         VBox vbox = new VBox(header, loginButton, registerButton, quitButton);
         vbox.setSpacing(20);
@@ -126,21 +124,5 @@ public class Library_Management_System extends Application  {
         primaryStage.show();
         
         rect.heightProperty().bind(primaryStage.heightProperty());
-    }
-    public static void main(String[] args) throws Exception {
-        Librarians librarian = new Librarians("testlibrarian", "TestLibrarian", "TestLibrarian", "TestLibrarian", "TestLibrarian", "TestLibrarian", false);
-        Readers reader = new Readers("testreader", "TestReader", "TestReader", "TestReader", "TestReader", "TestReader", false);
-        Librarians.addReaders(reader);
-        Books.AddBook(new Books("Harry Potter and the Philosopher's Stone", "Fiction", "J.K. Rowling", 123450987, true));
-        Books.AddBook(new Books("The Hobbit", "Fiction", "J.R.R. Tolkien", 901234567, true));
-        Books.AddBook(new Books("The Lord of the Rings", "Fiction", "J.R.R. Tolkien", 890123456, true));
-        Books.AddBook(new Books("Brave New World", "Fiction", "Aldous Huxley", 789012345, true));
-        Books.AddBook(new Books("Animal Farm", "Fiction", "George Orwell", 678901234, true));
-        Books.AddBook(new Books("The Great Gatsby", "Fiction", "F. Scott Fitzgerald", 567890123, true));
-        Books.AddBook(new Books("Pride and Prejudice", "Fiction", "Jane Austen", 456789012, true));
-        Books.AddBook(new Books("1984", "Fiction", "George Orwell", 345678901, true));
-        Books.AddBook(new Books("To Kill a Mockingbird", "Fiction", "Harper Lee", 234567890, true));
-        Books.AddBook(new Books("The Catcher in the Rye", "Fiction", "J.D. Salinger", 123456789, true));
-        Application.launch(args);
     }
 }

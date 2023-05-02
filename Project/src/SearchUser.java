@@ -94,7 +94,7 @@ public class SearchUser implements EventHandler<ActionEvent> {
                 alert.showAndWait();
             } 
             else {
-                List<Users> results = Librarians.searchMembers(search);
+                List<Users> results = Library.searchMembers(search);
                 
                 String resultsText = "";
                 for (Users user : results) {

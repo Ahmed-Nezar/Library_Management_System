@@ -3,6 +3,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.GridPane;
@@ -238,7 +239,10 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
             searchUser.handle(event);
         });
         Button logoutButton = new Button("Logout");
-        logoutButton.setOnAction(new login(primaryStage));
+        logoutButton.setOnAction(e -> {
+            Library_Managment_System Home = new Library_Managment_System();
+            Home.start(primaryStage);
+        });
         logoutButton.setStyle("-fx-background-color: rgba(0, 197, 149);" +
         "-fx-background-radius: 30px;" +
         "-fx-border-radius: 2px;" +

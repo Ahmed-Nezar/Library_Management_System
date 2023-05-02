@@ -1,6 +1,4 @@
-import java.util.List;
-
-public class Books extends Library{
+public class Books {
     private String Title;
     private String Genre;
     private String Author;
@@ -43,21 +41,8 @@ public class Books extends Library{
     public static int getBookCount() {
         return BookCount;
     }
-    public static List<Books> searchBooks(String search) {
-        return Library.books.stream()
-                .filter(book -> 
-                    book.getTitle().equalsIgnoreCase(search) ||
-                    book.getAuthor().equalsIgnoreCase(search) ||
-                    String.valueOf(book.getISBN()).equalsIgnoreCase(search)
-                )
-                .collect(java.util.stream.Collectors.toList());
-    }
-    public static void AddBook(Books book) {
-        Library.books.add(book);
-    }
-    public static void RemoveBook(int index) {
-        Library.books.remove(index);
-    }
+    
+   
     @Override
     public String toString() {
         return "ISBN: " + ISBN +

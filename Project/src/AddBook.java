@@ -139,7 +139,7 @@ class AddBook implements EventHandler<ActionEvent> {
                 else{
                     try {
                         long isbn1 = Long.parseLong(isbn);
-                        Books.AddBook(new Books(title, genre, author, isbn1,true));
+                        Library.AddBook(new Books(title, genre, author, isbn1,true));
                         Alert alert = new Alert(AlertType.INFORMATION);
                         alert.setTitle("Success");
                         alert.setHeaderText("Success");

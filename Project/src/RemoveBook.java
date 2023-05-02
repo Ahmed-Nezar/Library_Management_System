@@ -94,7 +94,7 @@ public class RemoveBook implements EventHandler<ActionEvent> {
                 alert.showAndWait();
             } 
             else {
-                List<Books> results = Books.searchBooks(search);
+                List<Books> results = Library.searchBooks(search);
                 
                 String resultsText = "";
                 for (Books books : results) {
@@ -161,12 +161,12 @@ public class RemoveBook implements EventHandler<ActionEvent> {
         );
         removeButton.setOnAction(e -> {
             String search = searchField.getText();
-            List<Books> results = Books.searchBooks(search);
+            List<Books> results = Library.searchBooks(search);
             for (int i = 0; i < results.size(); i++) {
                 for(int j = 0; j < Library.books.size(); j++) {
                     if (results.get(i).equals(Library.books.get(j))) {
                         
-                        Books.RemoveBook(j);
+                        Library.RemoveBook(j);
                         Alert alert = new Alert(AlertType.INFORMATION);
                         alert.setTitle("Sucess");
                         alert.setHeaderText("Sucess");

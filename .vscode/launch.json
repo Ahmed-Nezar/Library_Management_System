@@ -6,17 +6,18 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Current File",
+            "name": "Main",
             "request": "launch",
-            "mainClass": "${file}"
+            "mainClass": "Main",
+            "projectName": "Library_Management_System_adffa536",
+            "vmArgs": "--module-path \"C:\\Program Files\\Java\\javafx-sdk-20.0.1\\lib\" --add-modules javafx.controls,javafx.fxml"
+
         },
         {
             "type": "java",
-            "name": "Library_Management_System",
+            "name": "Current File",
             "request": "launch",
-            "vmArgs": "--module-path \"C:\\Program Files\\Java\\javafx-sdk-20.0.1\\lib\" --add-modules javafx.controls,javafx.fxml",
-            "mainClass": "Library_Management_System",
-            "projectName": "Library_Management_System_37621051"
+            "mainClass": "${file}"
         }
     ]
 }

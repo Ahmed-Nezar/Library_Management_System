@@ -94,7 +94,7 @@ public class SearchBooks implements EventHandler<ActionEvent> {
                 alert.showAndWait();
             } 
             else {
-                List<Books> results = Books.searchBooks(search);
+                List<Books> results = Library.searchBooks(search);
                 
                 String resultsText = "";
                 for (Books books : results) {
