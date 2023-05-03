@@ -142,7 +142,7 @@ class AddUser implements EventHandler<ActionEvent> {
         });
 
         AddUserPane.getChildren().addAll(emailLabel, emailField, passwordLabel, passwordField, confirmPasswordLabel, confirmPasswordField, firstNameLabel, firstNameField, lastNameLabel, lastNameField, phoneNumberLabel, phoneNumberField, addressLabel, addressField, AddUserButton, backButton);
-        Scene AddUserScene = new Scene(AddUserPane, 800, 600);
+        Scene AddUserScene = new Scene(AddUserPane, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
         AddUserScene.getStylesheets().add("buttonStyle.css");
         primaryStage.setMaximized(true);
         primaryStage.setScene(AddUserScene);

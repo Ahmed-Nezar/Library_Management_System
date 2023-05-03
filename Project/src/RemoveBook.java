@@ -120,7 +120,7 @@ public class RemoveBook implements EventHandler<ActionEvent> {
         vbox.setStyle("-fx-padding: 20px;");
         searchPage.getChildren().add(vbox);
 
-        Scene scene = new Scene(searchPage, 800, 600);
+        Scene scene = new Scene(searchPage, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
         scene.getStylesheets().add("buttonStyle.css");
         primaryStage.setTitle("Library Management System");
         primaryStage.setMaximized(true);

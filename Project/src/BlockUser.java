@@ -88,7 +88,7 @@ public class BlockUser implements EventHandler<ActionEvent> {
         blockBox.getChildren().addAll(header, name, usernameField, blockButton, backButton);
         blockpage.getChildren().add(blockBox);
 
-        Scene scene = new Scene(blockpage, 800, 600);
+        Scene scene = new Scene(blockpage, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
         scene.getStylesheets().add("buttonStyle.css");
         primaryStage.setTitle("Library Management System");
         primaryStage.setMaximized(true);

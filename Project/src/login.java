@@ -78,9 +78,10 @@ public class login implements EventHandler<ActionEvent>{
         loginButton.setFont(Font.font(20));
         GridPane.setConstraints(loginButton, 1, 2);
         loginPane.getChildren().addAll(UsernameLabel, UsernameField, passwordLabel, passwordField, loginButton);
-        Scene loginScene = new Scene(loginPane, 800, 600);
+        Scene loginScene = new Scene(loginPane, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
         loginScene.getStylesheets().add("buttonStyle.css");
-        primaryStage.setMaximized(true);
+        
         primaryStage.setScene(loginScene); 
+        
     }
 }

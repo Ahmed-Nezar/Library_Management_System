@@ -118,7 +118,7 @@ class AddBook implements EventHandler<ActionEvent> {
         });
 
         AddBookPane.getChildren().addAll(titLabel, titleField, genreLabel, genrField, authorLabel, authorField, isbnLabel, isbnField, AddBookButton, backButton);
-        Scene AddBookScene = new Scene(AddBookPane, 800, 600);
+        Scene AddBookScene = new Scene(AddBookPane, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
         AddBookScene.getStylesheets().add("buttonStyle.css");
         primaryStage.setMaximized(true);
         primaryStage.setScene(AddBookScene);

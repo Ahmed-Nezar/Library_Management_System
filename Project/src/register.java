@@ -160,7 +160,7 @@ class register implements EventHandler<ActionEvent> {
            
 
         registerPane.getChildren().addAll(emailLabel, emailField, passwordLabel, passwordField, confirmPasswordLabel, confirmPasswordField, firstNameLabel, firstNameField, lastNameLabel, lastNameField, phoneNumberLabel, phoneNumberField, addressLabel, addressField, registerButton, backButton);
-        Scene registerScene = new Scene(registerPane, 800, 600);
+        Scene registerScene = new Scene(registerPane, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
         registerScene.getStylesheets().add("buttonStyle.css");
         primaryStage.setMaximized(true);
         primaryStage.setScene(registerScene);

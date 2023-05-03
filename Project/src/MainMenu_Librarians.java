@@ -61,7 +61,9 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         Button logoutButton = new Button("Logout");
         logoutButton.setOnAction(e -> {
             Library_Managment_System Home = new Library_Managment_System();
-            Home.start(primaryStage);
+            Stage newPrimaryStage = new Stage();
+            Home.start(newPrimaryStage);
+            primaryStage.close();
         });
         
         GridPane.setConstraints(addBookButton, 0, 0);
@@ -73,7 +75,7 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         GridPane.setConstraints(blockUserButton, 0, 3);
         GridPane.setConstraints(logoutButton, 1, 3);
         mainMenuPane.getChildren().addAll(addBookButton,SearchRemoveBookButton,addUserButton,SearchRemoveUserButton,assignUserButton,rentBookButton,blockUserButton,logoutButton);
-        Scene mainMenuScene = new Scene(mainMenuPane, 800, 600);
+        Scene mainMenuScene = new Scene(mainMenuPane,  primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
         mainMenuScene.getStylesheets().add("buttonStyle.css");
         primaryStage.setScene(mainMenuScene);
         primaryStage.show();

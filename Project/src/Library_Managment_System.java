@@ -12,12 +12,15 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+
 public class Library_Managment_System extends Application {
     @Override
     public void start(Stage primaryStage) {
         
         ImageView background = new ImageView(new Image("books.jpg"));
         StackPane startPage = new StackPane(background);
+        Image icon = new Image("icon.jpg");
+        primaryStage.getIcons().add(icon);
         startPage.setAlignment(Pos.CENTER);
         Rectangle rect = new Rectangle(0, 0, 600, 0);
         rect.setFill(Color.rgb(0, 0, 0, 0.7));
@@ -51,7 +54,7 @@ public class Library_Managment_System extends Application {
         vbox.setStyle("-fx-padding: 20px;");
         startPage.getChildren().add(vbox);
         
-        Scene scene = new Scene(startPage, 800, 600);
+        Scene scene = new Scene(startPage, primaryStage.widthProperty().longValue(), primaryStage.heightProperty().longValue());
         scene.getStylesheets().add("buttonStyle.css");
         primaryStage.setTitle("Library Management System");
         primaryStage.setMaximized(true);

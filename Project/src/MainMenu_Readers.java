@@ -59,7 +59,7 @@ public class MainMenu_Readers implements EventHandler<ActionEvent>{
         MainMenuButtons.setSpacing(10);
         MainMenuButtons.setAlignment(Pos.CENTER);
         MainMenuPane.getChildren().addAll(MainMenuButtons);
-        Scene MainMenuScene = new Scene(MainMenuPane, 800, 600);
+        Scene MainMenuScene = new Scene(MainMenuPane,  primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
         MainMenuScene.getStylesheets().add("buttonStyle.css");
         primaryStage.setScene(MainMenuScene);
         primaryStage.show();
