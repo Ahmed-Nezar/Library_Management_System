@@ -30,7 +30,7 @@ class AddBook implements EventHandler<ActionEvent> {
     }
     @Override
     public void handle(ActionEvent event) {
-        Image backgroundImage = new Image("../GUI_Material/login.jpg");
+        Image backgroundImage = new Image("GUI_Material/login.jpg");
         BackgroundImage backgroundImg = new BackgroundImage(backgroundImage,BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(1.0, 1.0, true, true, false, false));
         Background background = new Background(backgroundImg);
         GridPane AddBookPane = new GridPane();
@@ -122,7 +122,7 @@ class AddBook implements EventHandler<ActionEvent> {
 
         AddBookPane.getChildren().addAll(titLabel, titleField, genreLabel, genrField, authorLabel, authorField, isbnLabel, isbnField, AddBookButton, backButton);
         Scene AddBookScene = new Scene(AddBookPane, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
-        AddBookScene.getStylesheets().add("../GUI_Material/buttonStyle.css");
+        AddBookScene.getStylesheets().add("GUI_Material/buttonStyle.css");
         primaryStage.setMaximized(true);
         primaryStage.setScene(AddBookScene);
     }

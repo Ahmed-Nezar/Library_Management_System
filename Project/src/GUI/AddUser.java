@@ -31,7 +31,7 @@ class AddUser implements EventHandler<ActionEvent> {
     }
     @Override
     public void handle(ActionEvent event) {
-        Image backgroundImage = new Image("../GUI_Material/login.jpg");
+        Image backgroundImage = new Image("GUI_Material/login.jpg");
         BackgroundImage backgroundImg = new BackgroundImage(backgroundImage,BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(1.0, 1.0, true, true, false, false));
         Background background = new Background(backgroundImg);
         GridPane AddUserPane = new GridPane();
@@ -146,7 +146,7 @@ class AddUser implements EventHandler<ActionEvent> {
 
         AddUserPane.getChildren().addAll(emailLabel, emailField, passwordLabel, passwordField, confirmPasswordLabel, confirmPasswordField, firstNameLabel, firstNameField, lastNameLabel, lastNameField, phoneNumberLabel, phoneNumberField, addressLabel, addressField, AddUserButton, backButton);
         Scene AddUserScene = new Scene(AddUserPane, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
-        AddUserScene.getStylesheets().add("../GUI_Material/buttonStyle.css");
+        AddUserScene.getStylesheets().add("GUI_Material/buttonStyle.css");
         primaryStage.setMaximized(true);
         primaryStage.setScene(AddUserScene);
     }

@@ -21,7 +21,7 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
     }
     @Override
     public void handle(ActionEvent event){
-        Image backgroundImage = new Image("../GUI_Material/login.jpg");
+        Image backgroundImage = new Image("GUI_Material/login.jpg");
         BackgroundImage backgroundImg = new BackgroundImage(backgroundImage,BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(1.0, 1.0, true, true, false, false));
         Background background = new Background(backgroundImg);
         GridPane mainMenuPane = new GridPane();
@@ -77,7 +77,7 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         GridPane.setConstraints(logoutButton, 1, 3);
         mainMenuPane.getChildren().addAll(addBookButton,SearchRemoveBookButton,addUserButton,SearchRemoveUserButton,assignUserButton,rentBookButton,blockUserButton,logoutButton);
         Scene mainMenuScene = new Scene(mainMenuPane,  primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
-        mainMenuScene.getStylesheets().add("../GUI_Material/buttonStyle.css");
+        mainMenuScene.getStylesheets().add("GUI_Material/buttonStyle.css");
         primaryStage.setScene(mainMenuScene);
         primaryStage.show();
     }

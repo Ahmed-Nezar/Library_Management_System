@@ -31,7 +31,7 @@ class register implements EventHandler<ActionEvent> {
     }
     @Override
     public void handle(ActionEvent event) {
-        Image backgroundImage = new Image("../GUI_Material/login.jpg");
+        Image backgroundImage = new Image("GUI_Material/login.jpg");
         BackgroundImage backgroundImg = new BackgroundImage(backgroundImage,BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(1.0, 1.0, true, true, false, false));
         Background background = new Background(backgroundImg);
         GridPane registerPane = new GridPane();
@@ -161,7 +161,7 @@ class register implements EventHandler<ActionEvent> {
 
         registerPane.getChildren().addAll(emailLabel, emailField, passwordLabel, passwordField, confirmPasswordLabel, confirmPasswordField, firstNameLabel, firstNameField, lastNameLabel, lastNameField, phoneNumberLabel, phoneNumberField, addressLabel, addressField, registerButton, backButton);
         Scene registerScene = new Scene(registerPane, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
-        registerScene.getStylesheets().add("../GUI_Material/buttonStyle.css");
+        registerScene.getStylesheets().add("GUI_Material/buttonStyle.css");
         primaryStage.setMaximized(true);
         primaryStage.setScene(registerScene);
     }

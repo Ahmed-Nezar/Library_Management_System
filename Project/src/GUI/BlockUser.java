@@ -30,7 +30,7 @@ public class BlockUser implements EventHandler<ActionEvent> {
     }
     @Override
     public void handle(ActionEvent event) {
-        ImageView background = new ImageView(new Image("../GUI_Material/login.jpg"));
+        ImageView background = new ImageView(new Image("GUI_Material/login.jpg"));
         StackPane blockpage = new StackPane(background);
         blockpage.setAlignment(Pos.CENTER);
         Rectangle rect = new Rectangle(0, 0, 1200, 0);
@@ -92,7 +92,7 @@ public class BlockUser implements EventHandler<ActionEvent> {
         blockpage.getChildren().add(blockBox);
 
         Scene scene = new Scene(blockpage, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
-        scene.getStylesheets().add("../GUI_Material/buttonStyle.css");
+        scene.getStylesheets().add("GUI_Material/buttonStyle.css");
         primaryStage.setTitle("Library Management System");
         primaryStage.setMaximized(true);
         primaryStage.setScene(scene);
