@@ -1,3 +1,4 @@
+package LibraryPack;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,6 +13,42 @@ public abstract class Library {
     public static void AddBook(Books book) {
         Library.books.add(book);
         //WriteOutputToFile.writeToFile(book);
+    }
+    public static void setBooks(ArrayList<Books> books) {
+        Library.books = books;
+    }
+    public static void setUsers(ArrayList<Users> users) {
+        Library.users = users;
+    }
+    public static void setLibrarians(ArrayList<Librarians> librarians) {
+        Library.librarians = librarians;
+    }
+    public static void setReaders(ArrayList<Readers> readers) {
+        Library.readers = readers;
+    }
+    public static void setOrders(ArrayList<Order> orders) {
+        Library.orders = orders;
+    }
+    public static void setLoans(ArrayList<Loan> loans) {
+        Library.loans = loans;
+    }
+    public static ArrayList<Books> getBooks() {
+        return books;
+    }
+    public static ArrayList<Users> getUsers() {
+        return users;
+    }
+    public static ArrayList<Librarians> getLibrarians() {
+        return librarians;
+    }
+    public static ArrayList<Readers> getReaders() {
+        return readers;
+    }
+    public static ArrayList<Order> getOrders() {
+        return orders;
+    }
+    public static ArrayList<Loan> getLoans() {
+        return loans;
     }
     public static void RemoveBook(int index) {
         Library.books.remove(index);

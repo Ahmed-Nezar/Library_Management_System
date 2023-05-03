@@ -1,3 +1,4 @@
+package GUI;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -18,19 +19,22 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import java.util.List;
 
+import LibraryPack.Library;
+import LibraryPack.Users;
 
 
 
-public class SearchBooks implements EventHandler<ActionEvent> {
+
+public class SearchUser implements EventHandler<ActionEvent> {
     private Stage primaryStage;
     
 
-    public SearchBooks(Stage primaryStage) {
+    public SearchUser(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
     @Override
     public void handle(ActionEvent event) {
-        ImageView background = new ImageView(new Image("login.jpg"));
+        ImageView background = new ImageView(new Image("../GUI_Material/login.jpg"));
         StackPane searchPage = new StackPane(background);
         searchPage.setAlignment(Pos.CENTER);
         Rectangle rect = new Rectangle(0, 0, 1200, 0);
@@ -46,7 +50,6 @@ public class SearchBooks implements EventHandler<ActionEvent> {
         header.setFill(Color.WHITE);
 
         Button searchButton = new Button("Search");
-        
         TextField searchField = new TextField();
         searchField.setPromptText("Search");
         searchField.setFont(Font.font(20));
@@ -72,11 +75,11 @@ public class SearchBooks implements EventHandler<ActionEvent> {
                 alert.showAndWait();
             } 
             else {
-                List<Books> results = Library.searchBooks(search);
+                List<Users> results = Library.searchMembers(search);
                 
                 String resultsText = "";
-                for (Books books : results) {
-                    resultsText += books.toString()+ "\n";
+                for (Users user : results) {
+                    resultsText += user.toString()+ "\n";
                 }
                 if (resultsText.equals("")) {
                     searchResultsText.setText("No results found.");
@@ -99,7 +102,7 @@ public class SearchBooks implements EventHandler<ActionEvent> {
         searchPage.getChildren().add(vbox);
 
         Scene scene = new Scene(searchPage, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
-        scene.getStylesheets().add("buttonStyle.css");
+        scene.getStylesheets().add("../GUI_Material/buttonStyle.css");
         primaryStage.setTitle("Library Management System");
         primaryStage.setMaximized(true);
         primaryStage.setScene(scene);

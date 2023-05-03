@@ -1,9 +1,12 @@
+package GUI;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import LibraryPack.Books;
+import LibraryPack.Library;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.Background;
@@ -27,7 +30,7 @@ class AddBook implements EventHandler<ActionEvent> {
     }
     @Override
     public void handle(ActionEvent event) {
-        Image backgroundImage = new Image("login.jpg");
+        Image backgroundImage = new Image("../GUI_Material/login.jpg");
         BackgroundImage backgroundImg = new BackgroundImage(backgroundImage,BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(1.0, 1.0, true, true, false, false));
         Background background = new Background(backgroundImg);
         GridPane AddBookPane = new GridPane();
@@ -119,7 +122,7 @@ class AddBook implements EventHandler<ActionEvent> {
 
         AddBookPane.getChildren().addAll(titLabel, titleField, genreLabel, genrField, authorLabel, authorField, isbnLabel, isbnField, AddBookButton, backButton);
         Scene AddBookScene = new Scene(AddBookPane, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
-        AddBookScene.getStylesheets().add("buttonStyle.css");
+        AddBookScene.getStylesheets().add("../GUI_Material/buttonStyle.css");
         primaryStage.setMaximized(true);
         primaryStage.setScene(AddBookScene);
     }

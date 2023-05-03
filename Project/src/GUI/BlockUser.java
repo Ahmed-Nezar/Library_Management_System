@@ -1,3 +1,4 @@
+package GUI;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -7,6 +8,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
+import LibraryPack.Library;
+import LibraryPack.Users;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.VBox;
@@ -27,7 +30,7 @@ public class BlockUser implements EventHandler<ActionEvent> {
     }
     @Override
     public void handle(ActionEvent event) {
-        ImageView background = new ImageView(new Image("login.jpg"));
+        ImageView background = new ImageView(new Image("../GUI_Material/login.jpg"));
         StackPane blockpage = new StackPane(background);
         blockpage.setAlignment(Pos.CENTER);
         Rectangle rect = new Rectangle(0, 0, 1200, 0);
@@ -62,7 +65,7 @@ public class BlockUser implements EventHandler<ActionEvent> {
                 alert.setContentText("Please enter a username");
                 alert.showAndWait();
             } else {
-                Users user = Library.users.stream().filter(u -> u.getFirstName().equals(firstname)).findFirst().orElse(null);
+                Users user = Library.getUsers().stream().filter(u -> u.getFirstName().equals(firstname)).findFirst().orElse(null);
                 if (user != null) {
                     user.setBlocked(true);
                     Alert alert = new Alert(AlertType.INFORMATION);
@@ -89,7 +92,7 @@ public class BlockUser implements EventHandler<ActionEvent> {
         blockpage.getChildren().add(blockBox);
 
         Scene scene = new Scene(blockpage, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
-        scene.getStylesheets().add("buttonStyle.css");
+        scene.getStylesheets().add("../GUI_Material/buttonStyle.css");
         primaryStage.setTitle("Library Management System");
         primaryStage.setMaximized(true);
         primaryStage.setScene(scene);

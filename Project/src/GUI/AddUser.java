@@ -1,9 +1,12 @@
+package GUI;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import LibraryPack.Library;
+import LibraryPack.Readers;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.Background;
@@ -28,7 +31,7 @@ class AddUser implements EventHandler<ActionEvent> {
     }
     @Override
     public void handle(ActionEvent event) {
-        Image backgroundImage = new Image("login.jpg");
+        Image backgroundImage = new Image("../GUI_Material/login.jpg");
         BackgroundImage backgroundImg = new BackgroundImage(backgroundImage,BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(1.0, 1.0, true, true, false, false));
         Background background = new Background(backgroundImg);
         GridPane AddUserPane = new GridPane();
@@ -131,7 +134,7 @@ class AddUser implements EventHandler<ActionEvent> {
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Success");
                     alert.setHeaderText("Success");
-                    alert.setContentText("User Has Been Added\n"+"Your Username is: "+ Library.readers.get(Library.readers.size()-1).getID() );
+                    alert.setContentText("User Has Been Added\n"+"Your Username is: "+ Library.getReaders().get(Library.getReaders().size()-1).getID() );
                     alert.showAndWait();
                     MainMenu_Librarians mainMenu = new MainMenu_Librarians(primaryStage);
                     mainMenu.handle(event);        
@@ -143,7 +146,7 @@ class AddUser implements EventHandler<ActionEvent> {
 
         AddUserPane.getChildren().addAll(emailLabel, emailField, passwordLabel, passwordField, confirmPasswordLabel, confirmPasswordField, firstNameLabel, firstNameField, lastNameLabel, lastNameField, phoneNumberLabel, phoneNumberField, addressLabel, addressField, AddUserButton, backButton);
         Scene AddUserScene = new Scene(AddUserPane, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
-        AddUserScene.getStylesheets().add("buttonStyle.css");
+        AddUserScene.getStylesheets().add("../GUI_Material/buttonStyle.css");
         primaryStage.setMaximized(true);
         primaryStage.setScene(AddUserScene);
     }

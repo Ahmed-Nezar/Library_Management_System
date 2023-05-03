@@ -1,6 +1,10 @@
+package FileHandling;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+
+import LibraryPack.Library;
+import LibraryPack.Readers;
 
 public class ReadReadersFromFile {
 

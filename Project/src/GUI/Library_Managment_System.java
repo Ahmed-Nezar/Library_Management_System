@@ -1,3 +1,4 @@
+package GUI;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,9 +18,9 @@ public class Library_Managment_System extends Application {
     @Override
     public void start(Stage primaryStage) {
         
-        ImageView background = new ImageView(new Image("books.jpg"));
+        ImageView background = new ImageView(new Image("../GUI_Material/books.jpg"));
         StackPane startPage = new StackPane(background);
-        Image icon = new Image("icon.jpg");
+        Image icon = new Image("../GUI_Material/icon.png");
         primaryStage.getIcons().add(icon);
         startPage.setAlignment(Pos.CENTER);
         Rectangle rect = new Rectangle(0, 0, 600, 0);
@@ -55,7 +56,7 @@ public class Library_Managment_System extends Application {
         startPage.getChildren().add(vbox);
         
         Scene scene = new Scene(startPage, primaryStage.widthProperty().longValue(), primaryStage.heightProperty().longValue());
-        scene.getStylesheets().add("buttonStyle.css");
+        scene.getStylesheets().add("../GUI_Material/buttonStyle.css");
         primaryStage.setTitle("Library Management System");
         primaryStage.setMaximized(true);
         primaryStage.setScene(scene);

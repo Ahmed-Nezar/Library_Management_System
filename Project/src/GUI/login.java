@@ -1,3 +1,5 @@
+package GUI;
+import LibraryPack.Library;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -28,7 +30,7 @@ public class login implements EventHandler<ActionEvent>{
     }
     @Override
     public void handle(ActionEvent event) {
-        Image backgroundImage = new Image("login.jpg");
+        Image backgroundImage = new Image("../GUI_Material/login.jpg");
         BackgroundImage backgroundImg = new BackgroundImage(backgroundImage,BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER, new BackgroundSize(1.0, 1.0, true, true, false, false));
         Background background = new Background(backgroundImg);
         GridPane loginPane = new GridPane();
@@ -58,11 +60,11 @@ public class login implements EventHandler<ActionEvent>{
             
             
             
-            if(Library.librarians.stream().anyMatch(librarian -> librarian.getID().equals(username) && librarian.getPassword().equals(password))) {
+            if(Library.getLibrarians().stream().anyMatch(librarian -> librarian.getID().equals(username) && librarian.getPassword().equals(password))) {
                 MainMenu_Librarians mainMenu_Librarians = new MainMenu_Librarians(primaryStage);
                 mainMenu_Librarians.handle(event);
             } 
-            else if(Library.readers.stream().anyMatch(reader -> reader.getID().equals(username) && reader.getPassword().equals(password))) {
+            else if(Library.getReaders().stream().anyMatch(reader -> reader.getID().equals(username) && reader.getPassword().equals(password))) {
                 MainMenu_Readers mainMenu_Readers = new MainMenu_Readers(primaryStage);
                 mainMenu_Readers.handle(event);
             }
@@ -79,7 +81,7 @@ public class login implements EventHandler<ActionEvent>{
         GridPane.setConstraints(loginButton, 1, 2);
         loginPane.getChildren().addAll(UsernameLabel, UsernameField, passwordLabel, passwordField, loginButton);
         Scene loginScene = new Scene(loginPane, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
-        loginScene.getStylesheets().add("buttonStyle.css");
+        loginScene.getStylesheets().add("../GUI_Material/buttonStyle.css");
         
         primaryStage.setScene(loginScene); 
         
