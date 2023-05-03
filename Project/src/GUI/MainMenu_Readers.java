@@ -35,7 +35,11 @@ public class MainMenu_Readers implements EventHandler<ActionEvent>{
         MainMenuPane.setPadding(new Insets(10, 10, 10, 10));
         MainMenuPane.setVgap(10);
         MainMenuPane.setHgap(10);
-        Button SearchForBook = new Button("Search");
+        Button searchUserReader = new Button("Search User");
+        searchUserReader.setOnAction(new SearchUserReader(primaryStage));
+
+        Button searchBook = new Button("Search Book");
+        searchBook.setOnAction(new SearchBooks(primaryStage));
         
         
         Button AdditionToOrderList = new Button("Add to Order List");
@@ -56,11 +60,11 @@ public class MainMenu_Readers implements EventHandler<ActionEvent>{
         "-fx-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"+
         "-fx-font-weight: bold" );
         
-        VBox MainMenuButtons = new VBox(welcomeLabel,SearchForBook, AdditionToOrderList, RentBook,logOut);
+        VBox MainMenuButtons = new VBox(welcomeLabel,searchUserReader,searchBook, AdditionToOrderList, RentBook,logOut);
         MainMenuButtons.setSpacing(10);
         MainMenuButtons.setAlignment(Pos.CENTER);
         MainMenuPane.getChildren().addAll(MainMenuButtons);
-        Scene MainMenuScene = new Scene(MainMenuPane,  primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
+        Scene MainMenuScene = new Scene(MainMenuPane, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
         MainMenuScene.getStylesheets().add("GUI_Material/buttonStyle.css");
         primaryStage.setScene(MainMenuScene);
         primaryStage.show();

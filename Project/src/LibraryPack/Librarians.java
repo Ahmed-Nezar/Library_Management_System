@@ -27,10 +27,7 @@ public class Librarians extends Users {
     
     
     
-    public void rentBook(Books book) {
-        Loan loan = new Loan(this, book);
-        Library.loans.add(loan);
-    }
+    
     @Override
     public String toString() {
         return "Librarian ID: " + this.ID +

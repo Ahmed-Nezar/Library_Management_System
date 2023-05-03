@@ -18,7 +18,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
+import javafx.scene.input.KeyCode;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -54,6 +54,19 @@ public class login implements EventHandler<ActionEvent>{
         GridPane.setConstraints(passwordLabel, 0, 1);
         GridPane.setConstraints(passwordField, 1, 1);
         Button loginButton = new Button("Login");
+        // Add event listener to username and password fields
+        UsernameField.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                loginButton.fire();
+            }
+        });
+
+        passwordField.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                loginButton.fire();
+            }
+        });
+
         loginButton.setOnAction(e -> {
             String username = UsernameField.getText();
             String password = passwordField.getText();
@@ -77,7 +90,7 @@ public class login implements EventHandler<ActionEvent>{
             }
             
         });
-        loginButton.setFont(Font.font(20));
+        
         GridPane.setConstraints(loginButton, 1, 2);
         loginPane.getChildren().addAll(UsernameLabel, UsernameField, passwordLabel, passwordField, loginButton);
         Scene loginScene = new Scene(loginPane, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());

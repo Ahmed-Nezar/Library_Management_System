@@ -43,7 +43,7 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         
         Button SearchRemoveUserButton = new Button("Search/Remove User");
         SearchRemoveUserButton.setOnAction(e -> {
-            SearchUser searchUser = new SearchUser(primaryStage);
+            SearchUserLibrarian searchUser = new SearchUserLibrarian(primaryStage);
             searchUser.handle(event);
         });
 
@@ -51,7 +51,7 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         // assignUserButton.setOnAction(new AssignUser(primaryStage));
 
         Button rentBookButton = new Button("Rent Book");
-        // rentBookButton.setOnAction(new RentBook(primaryStage));
+        rentBookButton.setOnAction(new RentBook(primaryStage));
 
         Button blockUserButton = new Button("Block User");
         blockUserButton.setOnAction(new BlockUser(primaryStage));

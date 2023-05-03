@@ -19,21 +19,18 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import java.util.List;
 
+import LibraryPack.Books;
 import LibraryPack.Library;
-import LibraryPack.Users;
 
 
-
-
-public class SearchUser implements EventHandler<ActionEvent> {
+public class RentBook implements EventHandler<ActionEvent> {
     private Stage primaryStage;
-    
-
-    public SearchUser(Stage primaryStage) {
+    public RentBook(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
+
     @Override
-    public void handle(ActionEvent event) {
+    public void handle(ActionEvent Event){
         ImageView background = new ImageView(new Image("GUI_Material/login.jpg"));
         StackPane searchPage = new StackPane(background);
         searchPage.setAlignment(Pos.CENTER);
@@ -67,35 +64,58 @@ public class SearchUser implements EventHandler<ActionEvent> {
         searchButton.setFont(Font.font(20));
         searchButton.setOnAction(e -> {
             String search = searchField.getText();
-            if (search.equals("")) {
-                Alert alert = new Alert(AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Search Error");
-                alert.setContentText("Please enter a search term.");
+            List<Books> searchResult = Library.searchBooks(search);
+            if(searchResult.size() == 0){
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Search Results");
+                alert.setHeaderText("No Results Found");
+                alert.setContentText("No results found for " + search);
                 alert.showAndWait();
-            } 
-            else {
-                List<Users> results = Library.searchMembers(search);
-                
-                String resultsText = "";
-                for (Users user : results) {
-                    resultsText += user.toString()+ "\n";
-                }
-                if (resultsText.equals("")) {
-                    searchResultsText.setText("No results found.");
-                }
-                else {
-                    searchResultsText.setText(resultsText);
-                }
-                
-
             }
+            else{
+                String result = "";
+                for(Books book : searchResult){
+                    result += book.toString() + "\n";
+                }
+                searchResultsText.setText(result);
+            }
+        });
+        TextField rentField = new TextField();
+        rentField.setPromptText("Enter Book ID");
+        rentField.setFont(Font.font(20));
+        rentField.setMaxWidth(600);
+
+
+        TextField rentField2 = new TextField();
+        rentField2.setPromptText("Enter your ID");
+        rentField2.setFont(Font.font(20));
+        rentField2.setMaxWidth(600);
+
+        Button RentButton = new Button("Rent");
+        RentButton.setOnAction(e -> {
+            String bookID = rentField.getText();
+            String userID = rentField2.getText();
+            if(Library.rentBook(bookID, userID)){
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Rent Book");
+                alert.setHeaderText("Book Rented");
+                alert.setContentText("Book with ID " + bookID + " has been rented to user with ID " + userID);
+                alert.showAndWait();
+            }
+            else{
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Rent Book");
+                alert.setHeaderText("Book Not Rented");
+                alert.setContentText("Book with ID " + bookID + " could not be rented to user with ID " + userID);
+                alert.showAndWait();
+            }
+            
         });
         Button backButton = new Button("Back");
         backButton.setOnAction(new MainMenu_Librarians(primaryStage));
         
 
-        VBox vbox = new VBox(header, searchField ,searchButton, searchResults, searchResultsText, backButton);
+        VBox vbox = new VBox(header, searchField ,searchButton, searchResults, searchResultsText,rentField,rentField2,RentButton, backButton);
         vbox.setSpacing(20);
         vbox.setAlignment(Pos.CENTER);
         vbox.setStyle("-fx-padding: 20px;");
