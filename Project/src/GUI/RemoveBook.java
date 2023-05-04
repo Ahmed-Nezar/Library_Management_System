@@ -95,30 +95,34 @@ public class RemoveBook implements EventHandler<ActionEvent> {
         Button backButton = new Button("Back");
         backButton.setOnAction(new MainMenu_Librarians(primaryStage));
 
+        TextField removeField = new TextField();
+        removeField.setPromptText("Enter ISBN or Author or Title to remove");
+        removeField.setFont(Font.font(20));
+        removeField.setMaxWidth(600);
+
         Button removeButton = new Button("Remove");
         removeButton.setOnAction(e -> {
-            String search = searchField.getText();
-            List<Books> results = Library.searchBooks(search);
-            for (int i = 0; i < results.size(); i++) {
-                for(int j = 0; j < Library.getBooks().size(); j++) {
-                    if (results.get(i).equals(Library.getBooks().get(j))) {
-                        
-                        Library.RemoveBook(j);
-                        Alert alert = new Alert(AlertType.INFORMATION);
-                        alert.setTitle("Sucess");
-                        alert.setHeaderText("Sucess");
-                        alert.setContentText("Book has been removed");
-                        alert.showAndWait();
-                        RemoveBook restart = new RemoveBook(primaryStage);
-                        restart.handle(e);
-                       
-                    }
-                }
-            }
+            String remove = removeField.getText();
 
+            if (remove.equals("")) {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Remove Error");
+                alert.setContentText("Please enter any of the Terms.");
+                alert.showAndWait();
+            } 
+            else {
+                Library.removeBook(remove);
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText("Remove Success");
+                alert.setContentText("Book removed successfully.");
+                alert.showAndWait();
+                searchButton.fire();
             }
-        );
-        VBox vbox = new VBox(header, searchField ,searchButton, searchResults, searchResultsText,removeButton, backButton);
+        });
+
+        VBox vbox = new VBox(header, searchField ,searchButton, searchResults, searchResultsText,removeField,removeButton, backButton);
         vbox.setSpacing(20);
         vbox.setAlignment(Pos.CENTER);
         vbox.setStyle("-fx-padding: 20px;");

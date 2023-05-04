@@ -47,7 +47,7 @@ public class Users {
         return Email;
     }
 
-    public boolean Blocked() {
+    public boolean getBlocked() {
         return Blocked;
     }
     public void setBlocked(boolean blocked) {

@@ -53,9 +53,6 @@ public abstract class Library {
         Library.books.add(book);
         //WriteOutputToFile.writeToFile(book);
     }
-    public static void RemoveBook(int index) {
-        Library.books.remove(index);
-    }
     public static void addReaders(Readers readers) {
 
         Library.users.add(readers);
@@ -63,6 +60,12 @@ public abstract class Library {
     public static void addLibrarians(Librarians librarians) {
         Library.users.add(librarians);
     }
+    public static void removeBook(String book) {
+        Library.books.removeIf(b -> b.getTitle().equals(book)||
+        b.getAuthor().equals(book)||
+        b.getISBN().equals(book));
+    }
+
     public static void removeUser(String user) {
         if (user.charAt(0) == 'R') {
             Users userToRemove = Library.readers.stream()

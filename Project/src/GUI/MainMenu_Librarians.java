@@ -62,9 +62,7 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         Button logoutButton = new Button("Logout");
         logoutButton.setOnAction(e -> {
             Library_Managment_System Home = new Library_Managment_System();
-            Stage newPrimaryStage = new Stage();
-            Home.start(newPrimaryStage);
-            primaryStage.close();
+            Home.start(primaryStage);
         });
         
         GridPane.setConstraints(addBookButton, 0, 0);

@@ -92,7 +92,7 @@ public class SearchUserReader implements EventHandler<ActionEvent> {
             }
         });
         Button backButton = new Button("Back");
-        backButton.setOnAction(new MainMenu_Librarians(primaryStage));
+        backButton.setOnAction(new MainMenu_Readers(primaryStage));
         
 
         VBox vbox = new VBox(header, searchField ,searchButton, searchResults, searchResultsText, backButton);

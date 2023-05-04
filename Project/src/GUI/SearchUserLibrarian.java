@@ -117,6 +117,7 @@ public class SearchUserLibrarian implements EventHandler<ActionEvent> {
                 alert.setHeaderText("Remove Success");
                 alert.setContentText("Member removed successfully.");
                 alert.showAndWait();
+                searchButton.fire();
             }
         });
         

@@ -41,7 +41,7 @@ public class Readers extends Users {
                 ", Address: " + super.getAddress() +
                 ", Cellphone: " + super.getCellPhone() +
                 ", Email: " + super.getEmail() +
-                ", Blocked: " + (super.Blocked() ? "Yes" : "No");
+                ", Blocked: " + (super.getBlocked() ? "Yes" : "No");
     }
     
     

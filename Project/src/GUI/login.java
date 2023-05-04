@@ -73,13 +73,27 @@ public class login implements EventHandler<ActionEvent>{
             
             
             
-            if(Library.getLibrarians().stream().anyMatch(librarian -> librarian.getID().equals(username) && librarian.getPassword().equals(password))) {
+            if(Library.getLibrarians().stream().anyMatch(librarian -> librarian.getID().equals(username) && librarian.getPassword().equals(password) && librarian.getBlocked() == false)) {
                 MainMenu_Librarians mainMenu_Librarians = new MainMenu_Librarians(primaryStage);
                 mainMenu_Librarians.handle(event);
             } 
-            else if(Library.getReaders().stream().anyMatch(reader -> reader.getID().equals(username) && reader.getPassword().equals(password))) {
+            else if(Library.getReaders().stream().anyMatch(reader -> reader.getID().equals(username) && reader.getPassword().equals(password) && reader.getBlocked() == false)) {
                 MainMenu_Readers mainMenu_Readers = new MainMenu_Readers(primaryStage);
                 mainMenu_Readers.handle(event);
+            }
+            else if(Library.getLibrarians().stream().anyMatch(librarian -> librarian.getID().equals(username) && librarian.getPassword().equals(password) && librarian.getBlocked() == true)){
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Blocked Account");
+                alert.setHeaderText("This account is blocked");
+                alert.setContentText("Please contact the library manager to unblock your account");
+                alert.showAndWait();
+            }
+            else if(Library.getReaders().stream().anyMatch(reader -> reader.getID().equals(username) && reader.getPassword().equals(password) && reader.getBlocked() == true)){
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Blocked Account");
+                alert.setHeaderText("This account is blocked");
+                alert.setContentText("Please contact the library manager to unblock your account");
+                alert.showAndWait();
             }
             else {
                 Alert alert = new Alert(AlertType.ERROR);

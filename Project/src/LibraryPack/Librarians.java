@@ -35,7 +35,7 @@ public class Librarians extends Users {
                 ", Address: " + super.getAddress() +
                 ", Cellphone: " + super.getCellPhone() +
                 ", Email: " + super.getEmail() +
-                ", Blocked: " + (super.Blocked() ? "Yes" : "No");
+                ", Blocked: " + (super.getBlocked() ? "Yes" : "No");
     }
 
     public String getType() {
@@ -45,7 +45,7 @@ public class Librarians extends Users {
         return LibrarianCount;
     }
     public void makeReaderLibrarian(Readers reader) {
-        Librarians librarian = new Librarians(reader.getPassword(), reader.getFirstName(), reader.getLastName(), reader.getAddress(), reader.getCellPhone(), reader.getEmail(), reader.Blocked());
+        Librarians librarian = new Librarians(reader.getPassword(), reader.getFirstName(), reader.getLastName(), reader.getAddress(), reader.getCellPhone(), reader.getEmail(), reader.getBlocked());
         Library.librarians.add(librarian);
         Library.readers.remove(reader);
     }
