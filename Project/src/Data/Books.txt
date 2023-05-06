@@ -98,3 +98,10 @@ The Master and Margarita,Fiction,Mikhail Bulgakov,890123456
 All Quiet on the Western Front,Fiction,Erich Maria Remarque,901234567
 Slaughterhouse-Five,Fiction,Kurt Vonnegut,012345678
 Catch-22,Fiction,Joseph Heller,123456789
+Crazy Family,Comedy,David Alaba,303232661616
+History of Real Madird,Sports,Karim Benzema,350112009
+KFC,Food,Patrica Ramierz,200220032002
+Programming,Education,Albert Einstein,1900
+The Communication Man,Ficition,Youssef Kareem,28122003
+Programming with Java,Education,Nezar,30112003
+Programming for Everybody,Education,Andrew Ng,1666459456165

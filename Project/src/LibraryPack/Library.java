@@ -2,6 +2,7 @@ package LibraryPack;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import FileHandling.*;
 public abstract class Library {
     protected static ArrayList<Books> books = new ArrayList<>();
     protected static ArrayList<Users> users = new ArrayList<>();
@@ -51,11 +52,12 @@ public abstract class Library {
 
     public static void AddBook(Books book) {
         Library.books.add(book);
-        //WriteOutputToFile.writeToFile(book);
+        WriteOutputToBookFile.writeToFile();
     }
     public static void addReaders(Readers readers) {
 
         Library.users.add(readers);
+        WriteOutputToReaderFile.writeToFile();
     }
     public static void addLibrarians(Librarians librarians) {
         Library.users.add(librarians);
