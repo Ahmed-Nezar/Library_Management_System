@@ -1,6 +1,7 @@
 package LibraryPack;
 public class Users {
     
+    private String Username;
     private String Password;
     private String FirstName;
     private String LastName;
@@ -9,7 +10,7 @@ public class Users {
     private String Email;
     private boolean Blocked;
     private static int UserCount = 0;
-    public Users(String Password, String FirstName, String LastName, String Address, String CellPhone, String Email, boolean Blocked) {
+    public Users(String Username,String Password, String FirstName, String LastName, String Address, String CellPhone, String Email, boolean Blocked) {
         
         this.Password = Password;
         this.FirstName = FirstName;
@@ -64,5 +65,11 @@ public class Users {
                 ", Cellphone: " + CellPhone +
                 ", Email: " + Email +
                 ", Blocked: " + Blocked;
+    }
+
+
+
+    public String getUsername() {
+        return Username;
     }
 }

@@ -2,8 +2,8 @@ package LibraryPack;
 public class Members extends Users {
     private boolean isLibrarian;
 
-    public Members(int ID, String Password, String FirstName, String LastName, String Address, String CellPhone, String Email, boolean isLibrarian) {
-        super(Password, FirstName, LastName, Address, CellPhone, Email, isLibrarian);
+    public Members(String Username,int ID, String Password, String FirstName, String LastName, String Address, String CellPhone, String Email, boolean isLibrarian) {
+        super(Username,Password, FirstName, LastName, Address, CellPhone, Email, isLibrarian);
         this.isLibrarian = isLibrarian;
     }
 

@@ -19,14 +19,15 @@ public class ReadLibrariansFromFile {
            while((line = bufferedReader.readLine()) != null) {
               String[] librarianData = line.split(","); 
               
-              String password = librarianData[0];
-              String firstName = librarianData[1];
-              String lastName = librarianData[2];
-              String address = librarianData[3];
-              String cellPhone = librarianData[4];
-              String email = librarianData[5];
+              String username = librarianData[0];
+              String password = librarianData[1];
+              String firstName = librarianData[2];
+              String lastName = librarianData[3];
+              String address = librarianData[4];
+              String cellPhone = librarianData[5];
+              String email = librarianData[6];
               boolean blocked = false;
-              Library.addLibrarians(new Librarians(password, firstName, lastName, address, cellPhone, email, blocked));
+              Library.addLibrarians(new Librarians(username,password, firstName, lastName, address, cellPhone, email, blocked));
             
            }
   

@@ -3,8 +3,8 @@ public class Readers extends Users {
     private String ID;
     private String Type;
     private static int ReaderCount = 0;
-    public Readers(String Password, String FirstName, String LastName, String Address, String CellPhone, String Email, boolean Blocked) {
-        super(Password, FirstName, LastName, Address, CellPhone, Email, Blocked);
+    public Readers(String Username,String Password, String FirstName, String LastName, String Address, String CellPhone, String Email, boolean Blocked) {
+        super(Username,Password, FirstName, LastName, Address, CellPhone, Email, Blocked);
         ReaderCount++;
         this.Type = "Reader";
         this.ID = "R" + ReaderCount + FirstName.charAt(0) + LastName.charAt(0);

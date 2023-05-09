@@ -3,8 +3,8 @@ public class Librarians extends Users {
     private String ID;
     private String Type;
     private static int LibrarianCount = 0;
-    public Librarians(String Password, String FirstName, String LastName, String Address, String CellPhone, String Email, boolean Blocked) {
-        super(Password, FirstName, LastName, Address, CellPhone, Email, Blocked);
+    public Librarians(String Username,String Password, String FirstName, String LastName, String Address, String CellPhone, String Email, boolean Blocked) {
+        super( Username,Password, FirstName, LastName, Address, CellPhone, Email, Blocked);
         LibrarianCount++;
         this.ID = "L" + LibrarianCount + FirstName.charAt(0) + LastName.charAt(0);
         this.Type = "Librarian";
@@ -45,7 +45,7 @@ public class Librarians extends Users {
         return LibrarianCount;
     }
     public void makeReaderLibrarian(Readers reader) {
-        Librarians librarian = new Librarians(reader.getPassword(), reader.getFirstName(), reader.getLastName(), reader.getAddress(), reader.getCellPhone(), reader.getEmail(), reader.getBlocked());
+        Librarians librarian = new Librarians(reader.getUsername(),reader.getPassword(), reader.getFirstName(), reader.getLastName(), reader.getAddress(), reader.getCellPhone(), reader.getEmail(), reader.getBlocked());
         Library.librarians.add(librarian);
         Library.readers.remove(reader);
     }

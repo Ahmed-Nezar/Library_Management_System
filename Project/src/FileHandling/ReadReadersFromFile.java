@@ -19,15 +19,16 @@ public class ReadReadersFromFile {
          while((line = bufferedReader.readLine()) != null) {
             String[] readerData = line.split(","); 
             
-            String password = readerData[0];
-            String firstName = readerData[1];
-            String lastName = readerData[2];
-            String address = readerData[3];
-            String cellPhone = readerData[4];
-            String email = readerData[5];
+            String username = readerData[0];
+            String password = readerData[1];
+            String firstName = readerData[2];
+            String lastName = readerData[3];
+            String address = readerData[4];
+            String cellPhone = readerData[5];
+            String email = readerData[6];
             boolean blocked = false;
-            Library.addReaders(new Readers(password, firstName, lastName, address, cellPhone, email, blocked));
-          
+            Library.addReaders(new Readers(username,password, firstName, lastName, address, cellPhone, email, blocked));
+            System.out.println(Library.getReaders().get(Library.getReaders().size()-1).getUsername());
          }
 
          bufferedReader.close();
