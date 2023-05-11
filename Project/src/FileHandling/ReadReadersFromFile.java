@@ -28,7 +28,7 @@ public class ReadReadersFromFile {
             String email = readerData[6];
             boolean blocked = false;
             Library.addReaders(new Readers(username,password, firstName, lastName, address, cellPhone, email, blocked));
-            System.out.println(Library.getReaders().get(Library.getReaders().size()-1).getUsername());
+            
          }
 
          bufferedReader.close();

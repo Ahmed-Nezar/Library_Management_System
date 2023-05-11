@@ -6,7 +6,7 @@ public class Order {
     public Order(Users user, Books book) {
         this.user = user;
         this.book = book;
-        Library.orders.add(this);
+        
     }
 
     public Users getUser() {

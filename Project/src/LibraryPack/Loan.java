@@ -6,7 +6,7 @@ public class Loan {
     public Loan(Users user, Books book) {
         this.user = user;
         this.book = book;
-        Library.loans.add(this);
+        
     }
     
     public Users getUser() {

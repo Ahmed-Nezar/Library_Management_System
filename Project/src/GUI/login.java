@@ -22,6 +22,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
+import LibraryPack.Users;
+
 public class login implements EventHandler<ActionEvent>{
     private Stage primaryStage;
 
@@ -74,10 +76,14 @@ public class login implements EventHandler<ActionEvent>{
             
             
             if(Library.getLibrarians().stream().anyMatch(librarian -> librarian.getUsername().equals(username) && librarian.getPassword().equals(password) && librarian.getBlocked() == false)) {
+                Users loggedUser = Library.getUsers().stream().filter(user -> user.getUsername().equals(username)).findFirst().get();
+                Library.setLoggedUser(loggedUser);
                 MainMenu_Librarians mainMenu_Librarians = new MainMenu_Librarians(primaryStage);
                 mainMenu_Librarians.handle(event);
             } 
             else if(Library.getReaders().stream().anyMatch(reader -> reader.getUsername().equals(username) && reader.getPassword().equals(password) && reader.getBlocked() == false)) {
+                Users loggedUser = Library.getUsers().stream().filter(user -> user.getUsername().equals(username)).findFirst().get();
+                Library.setLoggedUser(loggedUser);
                 MainMenu_Readers mainMenu_Readers = new MainMenu_Readers(primaryStage);
                 mainMenu_Readers.handle(event);
             }
@@ -104,9 +110,16 @@ public class login implements EventHandler<ActionEvent>{
             }
             
         });
+        Button backButton = new Button("Back");
+        backButton.setFont(Font.font(20));
+        backButton.setOnAction(e -> {
+            Library_Managment_System Home = new Library_Managment_System();
+            Home.start(primaryStage);
+        });
         
         GridPane.setConstraints(loginButton, 1, 2);
-        loginPane.getChildren().addAll(UsernameLabel, UsernameField, passwordLabel, passwordField, loginButton);
+        GridPane.setConstraints(backButton, 1, 3);
+        loginPane.getChildren().addAll(UsernameLabel, UsernameField, passwordLabel, passwordField, loginButton, backButton);
         Scene loginScene = new Scene(loginPane, primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
         loginScene.getStylesheets().add("GUI_Material/buttonStyle.css");
         

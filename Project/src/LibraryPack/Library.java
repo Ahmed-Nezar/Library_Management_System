@@ -11,7 +11,7 @@ public abstract class Library {
     protected static ArrayList<Order> orders = new ArrayList<>();
     protected static ArrayList<Loan> loans = new ArrayList<>();
     
-    
+    protected static Users loggedUser;
     public static void setBooks(ArrayList<Books> books) {
         Library.books = books;
     }
@@ -30,11 +30,14 @@ public abstract class Library {
     public static void setLoans(ArrayList<Loan> loans) {
         Library.loans = loans;
     }
+    public static void setLoggedUser(Users loggedUser) {
+        Library.loggedUser = loggedUser;
+    }
 
     public static ArrayList<Books> getBooks() {
         return books;
     }
-    public static ArrayList<Users> getUsers() {
+    public static List<Users> getUsers() {
         return users;
     }
     public static ArrayList<Librarians> getLibrarians() {
@@ -49,6 +52,9 @@ public abstract class Library {
     public static ArrayList<Loan> getLoans() {
         return loans;
     }
+    public static Users getLoggedUser() {
+        return loggedUser;
+    }
 
     public static void AddBook(Books book) {
         Library.books.add(book);
@@ -62,27 +68,12 @@ public abstract class Library {
     public static void addLibrarians(Librarians librarians) {
         Library.users.add(librarians);
     }
-    public static void removeBook(String book) {
-        Library.books.removeIf(b -> b.getTitle().equals(book)||
-        b.getAuthor().equals(book)||
-        b.getISBN().equals(book));
+    public static void removeBook(Books book) {
+        Library.books.remove(book);
     }
 
-    public static void removeUser(String user) {
-        if (user.charAt(0) == 'R') {
-            Users userToRemove = Library.readers.stream()
-                .filter(u -> u.getID().equals(user))
-                .findFirst()
-                .orElse(null);
-            Library.users.remove(userToRemove);
-        } 
-        else if (user.charAt(0) == 'L') {
-            Users userToRemove = Library.librarians.stream()
-                .filter(u -> u.getID().equals(user))
-                .findFirst()
-                .orElse(null);
-            Library.users.remove(userToRemove);
-        }
+    public static void removeUser(Users user) {
+        Library.users.remove(user);
         
     }
     public static List<Users> searchMembers(String search) {
@@ -102,37 +93,69 @@ public abstract class Library {
                 .filter(book -> 
                     book.getTitle().equalsIgnoreCase(search) ||
                     book.getAuthor().equalsIgnoreCase(search) ||
+                    book.getGenre().equalsIgnoreCase(search) ||
                     String.valueOf(book.getISBN()).equalsIgnoreCase(search)
                 )
                 .collect(java.util.stream.Collectors.toList());
     }
 
-    public static boolean rentBook(String isbn, String readerID) {
-        Books book = Library.books.stream()
-                .filter(b -> b.getISBN().equals(isbn))
-                .findFirst()
-                .orElse(null);
-        Users reader = null;
-        if (readerID.charAt(0)=='L'){
-            reader = Library.librarians.stream()
-                .filter(r -> r.getID().equals(readerID))
-                .findFirst()
-                .orElse(null);
-        }
-        else if(readerID.charAt(0)=='R'){
-            reader = Library.readers.stream()
-                .filter(r -> r.getID().equals(readerID))
-                .findFirst()
-                .orElse(null);
-        }
-        if (book == null || reader == null) {
-            return false;
-        }
-        else {
-            Loan loan = new Loan((Users)reader, book);
-            Library.loans.add(loan);
-            return true;
-        }
+    public static void rentBook(Books book) {
+        
+        Users user = Library.loggedUser;
+        Loan loan = new Loan(user, book);
+        
+        Library.loans.add(loan);
+
         
     }
+
+    public static String getRentedBy(Books book) {
+        String result = "";
+        for (Loan loan : Library.loans) {
+            if (loan.getBook().equals(book) && users.contains(loan.getUser())) {
+                result += loan.getUser().getFirstName() + " " + loan.getUser().getLastName() + "\n";
+            }
+        }
+        return result;
+    }
+    
+    public static String getLoanedBooks(Users user) {
+        String result = "";
+        for (Loan loan : Library.loans) {
+            if (loan.getUser().equals(user) && books.contains(loan.getBook())) {
+                result += loan.getBook().getTitle() + "\n";
+            }
+        }
+        return result;
+    }
+
+    public static void orderBook(Books book) {
+        Users user = Library.loggedUser;
+        Order order = new Order(user, book);
+        Library.orders.add(order);
+    }
+    public static void removeOrder(Users user, Books book) {
+        Library.orders.removeIf(order -> order.getUser().equals(user) && order.getBook().equals(book));
+    }
+    public static List<Order> searchOrders (String search) {
+        List<Users> users = Library.users.stream()
+        .filter(user -> 
+            user.getFirstName().equalsIgnoreCase(search) ||
+            user.getLastName().equalsIgnoreCase(search) ||
+            user.getCellPhone().equalsIgnoreCase(search) ||
+            user.getEmail().equalsIgnoreCase(search) ||
+            user.getAddress().equalsIgnoreCase(search) ||
+            (user.getFirstName() + " " + user.getLastName()).equalsIgnoreCase(search)
+        )
+        .collect(Collectors.toList());
+        for (Users user : users) {
+            return Library.orders.stream()
+            .filter(order -> 
+                order.getUser().equals(user)
+            )
+            .collect(Collectors.toList());
+        }
+        return null;
+    }
+
 }

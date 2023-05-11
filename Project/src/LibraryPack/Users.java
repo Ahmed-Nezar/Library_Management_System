@@ -11,7 +11,7 @@ public class Users {
     private boolean Blocked;
     private static int UserCount = 0;
     public Users(String Username,String Password, String FirstName, String LastName, String Address, String CellPhone, String Email, boolean Blocked) {
-        
+        this.Username = Username;
         this.Password = Password;
         this.FirstName = FirstName;
         this.LastName = LastName;
@@ -58,9 +58,11 @@ public class Users {
     public static int getUserCount() {
         return UserCount;
     }
+
+    @Override
     public String toString() {
         return 
-                " Name: " + FirstName + " " + LastName +
+                "Name: " + FirstName + " " + LastName +
                 ", Address: " + Address +
                 ", Cellphone: " + CellPhone +
                 ", Email: " + Email +

@@ -92,25 +92,25 @@ public class RentBook implements EventHandler<ActionEvent> {
         rentField2.setMaxWidth(600);
 
         Button RentButton = new Button("Rent");
-        RentButton.setOnAction(e -> {
-            String bookID = rentField.getText();
-            String userID = rentField2.getText();
-            if(Library.rentBook(bookID, userID)){
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("Rent Book");
-                alert.setHeaderText("Book Rented");
-                alert.setContentText("Book with ID " + bookID + " has been rented to user with ID " + userID);
-                alert.showAndWait();
-            }
-            else{
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("Rent Book");
-                alert.setHeaderText("Book Not Rented");
-                alert.setContentText("Book with ID " + bookID + " could not be rented to user with ID " + userID);
-                alert.showAndWait();
-            }
+        // RentButton.setOnAction(e -> {
+        //     String bookID = rentField.getText();
+        //     String userID = rentField2.getText();
+        //     if(Library.rentBook(bookID, userID)){
+        //         Alert alert = new Alert(AlertType.INFORMATION);
+        //         alert.setTitle("Rent Book");
+        //         alert.setHeaderText("Book Rented");
+        //         alert.setContentText("Book with ID " + bookID + " has been rented to user with ID " + userID);
+        //         alert.showAndWait();
+        //     }
+        //     else{
+        //         Alert alert = new Alert(AlertType.INFORMATION);
+        //         alert.setTitle("Rent Book");
+        //         alert.setHeaderText("Book Not Rented");
+        //         alert.setContentText("Book with ID " + bookID + " could not be rented to user with ID " + userID);
+        //         alert.showAndWait();
+        //     }
             
-        });
+        // });
         Button backButton = new Button("Back");
         backButton.setOnAction(new MainMenu_Librarians(primaryStage));
         

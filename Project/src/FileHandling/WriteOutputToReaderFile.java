@@ -11,7 +11,7 @@ public class WriteOutputToReaderFile {
             try {
                 FileWriter fw = new FileWriter("Project\\src\\Data\\ReadersData.txt", true);
                 Users readers = Library.getUsers().get(Library.getUsers().size() - 1);
-                fw.write(readers.getPassword()+","+readers.getFirstName()+","+readers.getLastName() +","+readers.getAddress()+","+readers.getCellPhone()+","+readers.getEmail() + "\n");
+                fw.write(readers.getUsername()+","+readers.getPassword()+","+readers.getFirstName()+","+readers.getLastName() +","+readers.getAddress()+","+readers.getCellPhone()+","+readers.getEmail() + "\n");
                 fw.close();
             }
             catch(IOException e) {

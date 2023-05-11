@@ -112,7 +112,7 @@ public class RemoveBook implements EventHandler<ActionEvent> {
                 alert.showAndWait();
             } 
             else {
-                Library.removeBook(remove);
+                // Library.removeBook(remove);
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Success");
                 alert.setHeaderText("Remove Success");

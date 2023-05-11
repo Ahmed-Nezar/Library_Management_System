@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import LibraryPack.Library;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.GridPane;
@@ -35,32 +36,30 @@ public class MainMenu_Readers implements EventHandler<ActionEvent>{
         MainMenuPane.setPadding(new Insets(10, 10, 10, 10));
         MainMenuPane.setVgap(10);
         MainMenuPane.setHgap(10);
-        Button searchUserReader = new Button("Search User");
-        searchUserReader.setOnAction(new SearchUserReader(primaryStage));
+        
 
-        Button searchBook = new Button("Search Book");
-        searchBook.setOnAction(new SearchBooks(primaryStage));
+        Button viewBooks = new Button("View Books");
+        viewBooks.setOnAction(new ManageBooks(primaryStage));
         
         
-        Button AdditionToOrderList = new Button("Add to Order List");
-        
-       
-        
-        Button RentBook = new Button("Rent a book");
+        Button myOrderList = new Button("Add to Order List");
+        myOrderList.setOnAction(new UserOrder(primaryStage, Library.getLoggedUser()));
 
-        Button logOut = new Button("Log out");
+
+        Button logOut = new Button("Log Out");
         logOut.setOnAction(e -> {
+            Library.setLoggedUser(null);
             Library_Managment_System Home = new Library_Managment_System();
             Home.start(primaryStage);
         });
-        Label welcomeLabel = new Label("Welcome Reader");
+        Label welcomeLabel = new Label("Welcome " + Library.getLoggedUser().getFirstName());
         welcomeLabel.setStyle("-fx-font-size: 60px;" +
         "-fx-text-align: center;"+ 
         "-fx-text-fill:rgba(50,50,50);"+
         "-fx-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"+
         "-fx-font-weight: bold" );
         
-        VBox MainMenuButtons = new VBox(welcomeLabel,searchUserReader,searchBook, AdditionToOrderList, RentBook,logOut);
+        VBox MainMenuButtons = new VBox(welcomeLabel,viewBooks, myOrderList,logOut);
         MainMenuButtons.setSpacing(10);
         MainMenuButtons.setAlignment(Pos.CENTER);
         MainMenuPane.getChildren().addAll(MainMenuButtons);

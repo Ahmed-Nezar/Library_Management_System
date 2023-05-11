@@ -111,7 +111,7 @@ public class SearchUserLibrarian implements EventHandler<ActionEvent> {
                 alert.showAndWait();
             } 
             else {
-                Library.removeUser(remove);
+                // Library.removeUser(remove);
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Success");
                 alert.setHeaderText("Remove Success");
