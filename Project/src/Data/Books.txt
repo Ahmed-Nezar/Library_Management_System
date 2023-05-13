@@ -1,4 +1,3 @@
-Harry Potter and the Philosopher's Stone,Fiction,J.K. Rowling,123450987
 The Hobbit,Fiction,J.R.R. Tolkien,901234567
 The Lord of the Rings,Fiction,J.R.R. Tolkien,890123456
 Brave New World,Fiction,Aldous Huxley,789012345
@@ -102,6 +101,3 @@ Crazy Family,Comedy,David Alaba,303232661616
 History of Real Madird,Sports,Karim Benzema,350112009
 KFC,Food,Patrica Ramierz,200220032002
 Programming,Education,Albert Einstein,1900
-The Communication Man,Ficition,Youssef Kareem,28122003
-Programming with Java,Education,Nezar,30112003
-Programming for Everybody,Education,Andrew Ng,1666459456165

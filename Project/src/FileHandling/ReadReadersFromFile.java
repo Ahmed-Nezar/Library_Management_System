@@ -26,7 +26,14 @@ public class ReadReadersFromFile {
             String address = readerData[4];
             String cellPhone = readerData[5];
             String email = readerData[6];
-            boolean blocked = false;
+            String Blocked = readerData[7];
+            boolean blocked;
+            if (Blocked.equals("true")) {
+                blocked = true;
+            }
+            else {
+                blocked = false;
+            }
             Library.addReaders(new Readers(username,password, firstName, lastName, address, cellPhone, email, blocked));
             
          }

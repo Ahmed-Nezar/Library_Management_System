@@ -135,7 +135,7 @@ public class UserManage implements EventHandler<ActionEvent> {
             @Override
             public void handle(ActionEvent event) {
                 if(user.getBlocked()==true){
-                    user.setBlocked(false);
+                    user.setBlocked(false, user);
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("User Unblocked");
                     alert.setHeaderText(null);
@@ -144,7 +144,7 @@ public class UserManage implements EventHandler<ActionEvent> {
                     Block.setText("Block User");
                 }
                 else if(user.getBlocked()==false){
-                    user.setBlocked(true);
+                    user.setBlocked(true,user);
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("User Blocked");
                     alert.setHeaderText(null);

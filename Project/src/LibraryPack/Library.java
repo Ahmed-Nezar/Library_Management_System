@@ -70,12 +70,20 @@ public abstract class Library {
     }
     public static void removeBook(Books book) {
         Library.books.remove(book);
+        RemoveBooksFromFile.removeBookFromFile("Project\\src\\Data\\Books.txt", book.getTitle());
     }
 
     public static void removeUser(Users user) {
         Library.users.remove(user);
-        
+        if (user instanceof Readers) {
+            RemoveReadersFromFile.removereaderFromFile("Project\\src\\Data\\ReadersData.txt", user.getUsername());
+        }
+        else if (user instanceof Librarians) {
+            RemoveLibrariansFromFile.removeLibrarianFromFile("Project\\src\\Data\\LibrariansData.txt", user.getUsername());
+        }
+            
     }
+        
     public static List<Users> searchMembers(String search) {
         return Library.users.stream()
                 .filter(user -> 

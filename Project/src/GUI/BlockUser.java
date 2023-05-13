@@ -67,7 +67,7 @@ public class BlockUser implements EventHandler<ActionEvent> {
             } else {
                 Users user = Library.getUsers().stream().filter(u -> u.getFirstName().equals(firstname)).findFirst().orElse(null);
                 if (user != null) {
-                    user.setBlocked(true);
+                    user.setBlocked(true,user);
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Success");
                     alert.setHeaderText("User blocked");
