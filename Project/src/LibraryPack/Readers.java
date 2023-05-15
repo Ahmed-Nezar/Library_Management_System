@@ -17,19 +17,6 @@ public class Readers extends Users {
     public String getType() {
         return Type;
     }
-    public void searchMembers(String FirstName, String LastName, String Cellphone) {
-        Library.users.stream().filter(user -> user.getFirstName().equals(FirstName) && user.getLastName().equals(LastName) && user.getCellPhone().equals(Cellphone)).forEach(System.out::println);
-    }
-    
-    public void addSelfToOrderList(Books book) {
-        Order order = new Order(this, book);
-        Library.orders.add(order);
-    }
-    
-    public void rentBook(Books book) {
-        Loan loan = new Loan(this, book);
-        Library.loans.add(loan);
-    }
 
     public static int getReaderCount() {
         return ReaderCount;

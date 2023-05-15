@@ -23,7 +23,7 @@ public class ReadBooksFromFile {
             String genre = bookData[1];
             String author = bookData[2];
             String isbn = bookData[3];
-            Library.AddBook(new Books(title, genre, author, isbn,true));
+            Library.AddBook(new Books(title, genre, author, isbn));
           
          }
 

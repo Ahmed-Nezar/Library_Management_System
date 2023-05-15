@@ -8,26 +8,21 @@ public class Librarians extends Users {
         LibrarianCount++;
         this.ID = "L" + LibrarianCount + FirstName.charAt(0) + LastName.charAt(0);
         this.Type = "Librarian";
-        
-    Library.librarians.add(this);
+        Library.librarians.add(this);
     }
     
     public String getID() {
         return ID;
     }
 
-    public void addUserToOrderList(Users user, Books book) {
-        Order order = new Order(user, book);
-        Library.orders.add(order);
+    public String getType() {
+        return Type;
     }
-    
-    public void removeUserFromOrderList(Users user) {
-        Library.orders.removeIf(order -> order.getUser().equals(user));
+
+    public static int getLibrarianCount() {
+        return LibrarianCount;
     }
-    
-    
-    
-    
+
     @Override
     public String toString() {
         return "Librarian ID: " + this.ID +
@@ -36,17 +31,5 @@ public class Librarians extends Users {
                 ", Cellphone: " + super.getCellPhone() +
                 ", Email: " + super.getEmail() +
                 ", Blocked: " + (super.getBlocked() ? "Yes" : "No");
-    }
-
-    public String getType() {
-        return Type;
-    }
-    public static int getLibrarianCount() {
-        return LibrarianCount;
-    }
-    public void makeReaderLibrarian(Readers reader) {
-        Librarians librarian = new Librarians(reader.getUsername(),reader.getPassword(), reader.getFirstName(), reader.getLastName(), reader.getAddress(), reader.getCellPhone(), reader.getEmail(), reader.getBlocked());
-        Library.librarians.add(librarian);
-        Library.readers.remove(reader);
     }
 }

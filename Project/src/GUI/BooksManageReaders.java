@@ -90,6 +90,14 @@ public class BooksManageReaders implements EventHandler<ActionEvent> {
         rent.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                if (Library.isRentedBefore(book)){
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Book already rented");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Book has been rented before!");
+                    alert.showAndWait();
+                    return;
+                }
                 Library.rentBook(book);
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Book Rented");

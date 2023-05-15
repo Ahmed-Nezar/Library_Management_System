@@ -68,6 +68,12 @@ public abstract class Library {
     public static void addLibrarians(Librarians librarians) {
         Library.users.add(librarians);
     }
+    public static void addOrder(Order order) {
+        Library.orders.add(order);
+    }
+    public static void addLoan(Loan loan) {
+        Library.loans.add(loan);
+    }
     public static void removeBook(Books book) {
         Library.books.remove(book);
         RemoveBooksFromFile.removeBookFromFile("Project\\src\\Data\\Books.txt", book.getTitle());
@@ -116,6 +122,14 @@ public abstract class Library {
 
         
     }
+    public static boolean isRentedBefore(Books book) {
+        for (Loan loan : Library.loans) {
+            if (loan.getBook().equals(book) && loan.getUser().equals(Library.loggedUser)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static String getRentedBy(Books book) {
         String result = "";
@@ -136,6 +150,9 @@ public abstract class Library {
         }
         return result;
     }
+    public static void returnBook(Books book) {
+        Library.loans.removeIf(loan -> loan.getBook().equals(book) && loan.getUser().equals(Library.loggedUser));
+    }
 
     public static void orderBook(Books book) {
         Users user = Library.loggedUser;
@@ -146,16 +163,7 @@ public abstract class Library {
         Library.orders.removeIf(order -> order.getUser().equals(user) && order.getBook().equals(book));
     }
     public static List<Order> searchOrders (String search) {
-        List<Users> users = Library.users.stream()
-        .filter(user -> 
-            user.getFirstName().equalsIgnoreCase(search) ||
-            user.getLastName().equalsIgnoreCase(search) ||
-            user.getCellPhone().equalsIgnoreCase(search) ||
-            user.getEmail().equalsIgnoreCase(search) ||
-            user.getAddress().equalsIgnoreCase(search) ||
-            (user.getFirstName() + " " + user.getLastName()).equalsIgnoreCase(search)
-        )
-        .collect(Collectors.toList());
+        List<Users> users = searchMembers(search);
         for (Users user : users) {
             return Library.orders.stream()
             .filter(order -> 

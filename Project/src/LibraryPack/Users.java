@@ -25,7 +25,9 @@ public class Users {
         UserCount++;
     }
     
-
+    public String getUsername() {
+        return Username;
+    }
 
     public String getPassword() {
         return Password;
@@ -71,11 +73,5 @@ public class Users {
                 ", Cellphone: " + CellPhone +
                 ", Email: " + Email +
                 ", Blocked: " + Blocked;
-    }
-
-
-
-    public String getUsername() {
-        return Username;
     }
 }

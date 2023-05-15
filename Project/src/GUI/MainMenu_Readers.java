@@ -42,9 +42,11 @@ public class MainMenu_Readers implements EventHandler<ActionEvent>{
         viewBooks.setOnAction(new ManageBooks(primaryStage));
         
         
-        Button myOrderList = new Button("Add to Order List");
+        Button myOrderList = new Button("My Order List");
         myOrderList.setOnAction(new UserOrder(primaryStage, Library.getLoggedUser()));
 
+        Button myRentedBooks = new Button("My Rented Books");
+        myRentedBooks.setOnAction(new UserRentedBooks(primaryStage, Library.getLoggedUser()));
 
         Button logOut = new Button("Log Out");
         logOut.setOnAction(e -> {
@@ -59,7 +61,7 @@ public class MainMenu_Readers implements EventHandler<ActionEvent>{
         "-fx-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"+
         "-fx-font-weight: bold" );
         
-        VBox MainMenuButtons = new VBox(welcomeLabel,viewBooks, myOrderList,logOut);
+        VBox MainMenuButtons = new VBox(welcomeLabel,viewBooks, myOrderList,myRentedBooks,logOut);
         MainMenuButtons.setSpacing(10);
         MainMenuButtons.setAlignment(Pos.CENTER);
         MainMenuPane.getChildren().addAll(MainMenuButtons);

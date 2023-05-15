@@ -58,11 +58,8 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         Button bookOrders = new Button("Manage Book Orders");
         bookOrders.setOnAction(new BookOrderList(primaryStage));
 
-        // Button rentBookButton = new Button("Rent Book");
-        // rentBookButton.setOnAction(new RentBook(primaryStage));
-
-        // Button blockUserButton = new Button("Block User");
-        // blockUserButton.setOnAction(new BlockUser(primaryStage));
+        Button myRentedBooks = new Button("My Rented Books");
+        myRentedBooks.setOnAction(new UserRentedBooks(primaryStage, Library.getLoggedUser()));
 
 
         Button logoutButton = new Button("Log Out");
@@ -79,9 +76,10 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         GridPane.setConstraints(manageBooks, 0, 2);
         GridPane.setConstraints(manageUsers, 1, 2);
         GridPane.setConstraints(bookOrders, 0, 3);
-        GridPane.setConstraints(logoutButton, 1, 3);
+        GridPane.setConstraints(myRentedBooks, 1, 3);
+        GridPane.setConstraints(logoutButton, 0, 4);
         
-        mainMenuPane.getChildren().addAll(welcome,addBookButton,manageBooks,addUserButton,manageUsers,bookOrders,logoutButton);
+        mainMenuPane.getChildren().addAll(welcome,addBookButton,manageBooks,addUserButton,manageUsers,bookOrders,myRentedBooks,logoutButton);
         Scene mainMenuScene = new Scene(mainMenuPane,  primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());
         mainMenuScene.getStylesheets().add("GUI_Material/buttonStyle.css");
         primaryStage.setScene(mainMenuScene);
