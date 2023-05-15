@@ -70,9 +70,11 @@ public abstract class Library {
     }
     public static void addOrder(Order order) {
         Library.orders.add(order);
+        WriteOutputToOrderFile.writeToFile();
     }
     public static void addLoan(Loan loan) {
         Library.loans.add(loan);
+        WriteOutputToLoanFile.writeToFile();
     }
     public static void removeBook(Books book) {
         Library.books.remove(book);
@@ -119,7 +121,7 @@ public abstract class Library {
         Loan loan = new Loan(user, book);
         
         Library.loans.add(loan);
-
+        WriteOutputToLoanFile.writeToFile();
         
     }
     public static boolean isRentedBefore(Books book) {
@@ -151,16 +153,29 @@ public abstract class Library {
         return result;
     }
     public static void returnBook(Books book) {
+        Loan loantoremove = loans.stream()
+                .filter(l -> l.getBook().equals(book) && l.getUser().equals(Library.loggedUser))
+                .findFirst()
+                .orElse(null);
         Library.loans.removeIf(loan -> loan.getBook().equals(book) && loan.getUser().equals(Library.loggedUser));
+        
+        RemoveLoansFromFile.removeloanFromFile("Project\\src\\Data\\Loans.txt",loantoremove);
     }
 
     public static void orderBook(Books book) {
         Users user = Library.loggedUser;
         Order order = new Order(user, book);
         Library.orders.add(order);
+        WriteOutputToOrderFile.writeToFile();
     }
     public static void removeOrder(Users user, Books book) {
+        Order ordertoremove = orders.stream()
+                .filter(o -> o.getUser().equals(user) && o.getBook().equals(book))
+                .findFirst()
+                .orElse(null);
         Library.orders.removeIf(order -> order.getUser().equals(user) && order.getBook().equals(book));
+        
+        RemoveOrdersFromFile.removeOrderFromFile("Project\\src\\Data\\Orders.txt", ordertoremove);
     }
     public static List<Order> searchOrders (String search) {
         List<Users> users = searchMembers(search);

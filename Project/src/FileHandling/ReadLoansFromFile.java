@@ -24,7 +24,7 @@ public class ReadLoansFromFile {
               String User = loanData[0];
               String Book = loanData[1];
               
-              Users user = Library.getUsers().stream().filter(u -> u.getUsername().equals(User)).findFirst().orElse(null);
+              Users user = Library.getUsers().stream().filter(u -> u.getFirstName().equals(User)).findFirst().orElse(null);
               Books book = Library.getBooks().stream().filter(b -> b.getTitle().equals(Book)).findFirst().orElse(null);
 
               Loan loan = new Loan(user, book);
