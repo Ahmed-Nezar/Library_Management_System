@@ -1,4 +1,4 @@
-reader,1,TestReader,TestReader,TestReader,TestReader,TestReader@email.com,false
+reader,1,TestReader,TestReader,TestReader,5675551234,TestReader@email.com,false
 johndoe456,abcdefg123,John,Doe,123 Main St,5551234567,johndoe@email.com,false
 jane_smith789,password123,Jane,Smith,456 Elm St,5552345678,janesmith@email.com,false
 mike.johnson1011,qwerty123,Michael,Johnson,789 Oak St,5553456789,michaeljohnson@email.com,false
