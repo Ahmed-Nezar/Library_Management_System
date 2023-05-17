@@ -68,14 +68,6 @@ public abstract class Library {
     public static void addLibrarians(Librarians librarians) {
         Library.users.add(librarians);
     }
-    public static void addOrder(Order order) {
-        Library.orders.add(order);
-        WriteOutputToOrderFile.writeToFile();
-    }
-    public static void addLoan(Loan loan) {
-        Library.loans.add(loan);
-        WriteOutputToLoanFile.writeToFile();
-    }
     public static void removeBook(Books book) {
         Library.books.remove(book);
         RemoveBooksFromFile.removeBookFromFile("Project\\src\\Data\\Books.txt", book.getTitle());
@@ -115,9 +107,9 @@ public abstract class Library {
                 .collect(java.util.stream.Collectors.toList());
     }
 
-    public static void rentBook(Books book) {
+    public static void rentBook(Users user,Books book) {
         
-        Users user = Library.loggedUser;
+        
         Loan loan = new Loan(user, book);
         
         Library.loans.add(loan);
@@ -162,8 +154,8 @@ public abstract class Library {
         RemoveLoansFromFile.removeloanFromFile("Project\\src\\Data\\Loans.txt",loantoremove);
     }
 
-    public static void orderBook(Books book) {
-        Users user = Library.loggedUser;
+    public static void orderBook(Users user,Books book) {
+        
         Order order = new Order(user, book);
         Library.orders.add(order);
         WriteOutputToOrderFile.writeToFile();

@@ -104,7 +104,7 @@ public class BookManage implements EventHandler<ActionEvent> {
                     alert.showAndWait();
                     return;
                 }
-                Library.rentBook(book);
+                Library.rentBook(Library.getLoggedUser(),book);
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Book Rented");
                 alert.setHeaderText(null);

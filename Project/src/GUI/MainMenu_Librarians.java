@@ -1,5 +1,6 @@
 package GUI;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -8,6 +9,7 @@ import LibraryPack.Library;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.layout.GridPane;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
@@ -68,7 +70,8 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
             Library_Managment_System Home = new Library_Managment_System();
             Home.start(primaryStage);
         });
-
+        GridPane.setHalignment(logoutButton, HPos.CENTER);
+        GridPane.setColumnSpan(logoutButton, 2);
         
         GridPane.setConstraints(welcome, 0, 0, 2, 1);
         GridPane.setConstraints(addBookButton, 0, 1);
@@ -77,7 +80,7 @@ public class MainMenu_Librarians implements EventHandler<ActionEvent> {
         GridPane.setConstraints(manageUsers, 1, 2);
         GridPane.setConstraints(bookOrders, 0, 3);
         GridPane.setConstraints(myRentedBooks, 1, 3);
-        GridPane.setConstraints(logoutButton, 0, 4);
+        GridPane.setConstraints(logoutButton, 0, 4, 2, 1);
         
         mainMenuPane.getChildren().addAll(welcome,addBookButton,manageBooks,addUserButton,manageUsers,bookOrders,myRentedBooks,logoutButton);
         Scene mainMenuScene = new Scene(mainMenuPane,  primaryStage.widthProperty().doubleValue(), primaryStage.heightProperty().doubleValue());

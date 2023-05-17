@@ -27,8 +27,8 @@ public class ReadOrdersFromFile {
               Users user = Library.getUsers().stream().filter(u -> u.getFirstName().equals(User)).findFirst().orElse(null);
               Books book = Library.getBooks().stream().filter(b -> b.getTitle().equals(Book)).findFirst().orElse(null);
 
-              Order order = new Order(user, book);
-              Library.addOrder(order);
+              
+              Library.orderBook(user, book);
            }
   
            bufferedReader.close();

@@ -27,8 +27,8 @@ public class ReadLoansFromFile {
               Users user = Library.getUsers().stream().filter(u -> u.getFirstName().equals(User)).findFirst().orElse(null);
               Books book = Library.getBooks().stream().filter(b -> b.getTitle().equals(Book)).findFirst().orElse(null);
 
-              Loan loan = new Loan(user, book);
-              Library.addLoan(loan);
+              
+              Library.rentBook(user, book);
            }
   
            bufferedReader.close();

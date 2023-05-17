@@ -98,7 +98,7 @@ public class BooksManageReaders implements EventHandler<ActionEvent> {
                     alert.showAndWait();
                     return;
                 }
-                Library.rentBook(book);
+                Library.rentBook(Library.getLoggedUser(),book);
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Book Rented");
                 alert.setHeaderText(null);
@@ -112,7 +112,7 @@ public class BooksManageReaders implements EventHandler<ActionEvent> {
         order.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Library.orderBook(book);
+                Library.orderBook(Library.getLoggedUser(), book);
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Book ordered");
                 alert.setHeaderText(null);
