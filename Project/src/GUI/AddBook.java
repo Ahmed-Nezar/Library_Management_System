@@ -56,7 +56,7 @@ class AddBook implements EventHandler<ActionEvent> {
         GridPane.setConstraints(genreLabel, 0, 1);
         GridPane.setConstraints(genrField, 1, 1);
 
-        Label authorLabel = new Label("author:");
+        Label authorLabel = new Label("Author:");
         authorLabel.setFont(Font.font(20));
         TextField authorField = new TextField();
         authorField.setPromptText("Enter the author of the book");

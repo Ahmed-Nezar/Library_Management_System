@@ -9,7 +9,7 @@
             "name": "Main",
             "request": "launch",
             "mainClass": "Main",
-            "projectName": "Library_Management_System_37621051",
+            "projectName": "Library_Management_System_271316bb",
             "vmArgs": "--module-path \"C:\\Program Files\\Java\\javafx-sdk-20.0.1\\lib\" --add-modules javafx.controls,javafx.fxml"
 
         },

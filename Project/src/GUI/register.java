@@ -117,12 +117,13 @@ class register implements EventHandler<ActionEvent> {
                     int phoneNumberInt = Integer.parseInt(phoneNumber);
                     String address = addressField.getText();
                     for (int i = 0; i < Library.getReaders().size(); i++) {
-                        if (Library.getReaders().get(i).getUsername().equals(username)) {
+                        if (Library.getUsers().get(i).getUsername().equals(username)) {
                             Alert alert = new Alert(AlertType.ERROR);
                             alert.setTitle("Error");
                             alert.setHeaderText("Error");
                             alert.setContentText("Username already exists");
                             alert.showAndWait();
+                            return;
                         }
                     }
                     if (email.equals("") || password.equals("") || confirmPassword.equals("") || firstName.equals("") || lastName.equals("") || phoneNumber.equals("") || address.equals("")) {

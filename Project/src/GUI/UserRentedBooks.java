@@ -57,7 +57,7 @@ public class UserRentedBooks implements EventHandler<ActionEvent> {
         
         
         
-        Text header = new Text("My Orders");
+        Text header = new Text("My Loans");
         header.setFont(Font.font("Arial", FontWeight.BOLD, 30));
         header.setFill(Color.WHITE);
 

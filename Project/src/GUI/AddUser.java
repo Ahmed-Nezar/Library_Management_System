@@ -117,47 +117,58 @@ class AddUser implements EventHandler<ActionEvent> {
                 String firstName = firstNameField.getText();
                 String lastName = lastNameField.getText();
                 String phoneNumber = phoneNumberField.getText();
-                String address = addressField.getText();
-                for (int i = 0; i < Library.getReaders().size(); i++) {
-                    if (Library.getReaders().get(i).getUsername().equals(username)) {
+                try {
+                    int phoneNumberInt = Integer.parseInt(phoneNumber);
+                    String address = addressField.getText();
+                    for (int i = 0; i < Library.getReaders().size(); i++) {
+                        if (Library.getUsers().get(i).getUsername().equals(username)) {
+                            Alert alert = new Alert(AlertType.ERROR);
+                            alert.setTitle("Error");
+                            alert.setHeaderText("Error");
+                            alert.setContentText("Username already exists");
+                            alert.showAndWait();
+                            return;
+                        }
+                    }
+                    if (email.equals("") || password.equals("") || confirmPassword.equals("") || firstName.equals("") || lastName.equals("") || phoneNumber.equals("") || address.equals("")) {
                         Alert alert = new Alert(AlertType.ERROR);
                         alert.setTitle("Error");
                         alert.setHeaderText("Error");
-                        alert.setContentText("Username already exists");
+                        alert.setContentText("Please fill in all the fields");
                         alert.showAndWait();
-                        return;
+                    } else if (!password.equals(confirmPassword)) {
+                        Alert alert = new Alert(AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("Error");
+                        alert.setContentText("Passwords do not match");
+                        alert.showAndWait();
+                    } else if (email.contains("@") == false || email.contains(".com") == false) {
+                        Alert alert = new Alert(AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("Error");
+                        alert.setContentText("Invalid email");
+                        alert.showAndWait();
+                    } 
+                    else {
+                        Library.addReaders(new Readers(username,password, firstName, lastName, address, phoneNumber, email,false));
+                        Alert alert = new Alert(AlertType.INFORMATION);
+                        alert.setTitle("Success");
+                        alert.setHeaderText("Success");
+                        alert.setContentText("User added successfully " + "ID: " + Library.getReaders().get(Library.getReaders().size() - 1).getID());
+                        alert.showAndWait();
+                        MainMenu_Librarians mainMenu_Librarians = new MainMenu_Librarians(primaryStage);
+                        mainMenu_Librarians.handle(event);     
+                        
                     }
-                }
-                if (email.equals("") || password.equals("") || confirmPassword.equals("") || firstName.equals("") || lastName.equals("") || phoneNumber.equals("") || address.equals("")) {
+                } catch (NumberFormatException e) {
                     Alert alert = new Alert(AlertType.ERROR);
                     alert.setTitle("Error");
                     alert.setHeaderText("Error");
-                    alert.setContentText("Please fill in all the fields");
+                    alert.setContentText("Invalid phone number");
                     alert.showAndWait();
-                } else if (!password.equals(confirmPassword)) {
-                    Alert alert = new Alert(AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText("Error");
-                    alert.setContentText("Passwords do not match");
-                    alert.showAndWait();
-                } else if (email.contains("@") == false || email.contains(".com") == false) {
-                    Alert alert = new Alert(AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText("Error");
-                    alert.setContentText("Invalid email");
-                    alert.showAndWait();
-                } 
-                else {
-                    Library.addReaders(new Readers(username,password, firstName, lastName, address, phoneNumber, email,false));
-                    Alert alert = new Alert(AlertType.INFORMATION);
-                    alert.setTitle("Success");
-                    alert.setHeaderText("Success");
-                    alert.setContentText("User Has Been Added\n"+"Your Username is: "+ Library.getReaders().get(Library.getReaders().size()-1).getID() );
-                    alert.showAndWait();
-                    MainMenu_Librarians mainMenu = new MainMenu_Librarians(primaryStage);
-                    mainMenu.handle(event);        
                     
-                }   
+                    
+                }
                 
             }
         });
